@@ -9,6 +9,7 @@ class AssetRes {
   static String homeIcon = "${icons}home.png";
   static String searchIcon = "${icons}search.png";
   static String plusIcon = "${icons}plus.png";
+  static String emailIcon = "${icons}email.png";
 
   ///------------------------------------ images -----------------------------///
   static String splashLogo = "${image}splash_logo.png";

@@ -11,7 +11,7 @@ import 'package:product_app/screen/pending_order_screen/pending_order_screen.dar
 import 'package:product_app/screen/pending_service_screen/pending_service_screen.dart';
 import 'package:product_app/screen/return_order_screen/return_order_screen.dart';
 import 'package:product_app/screen/signin_screen/signin_screen.dart';
-import 'package:product_app/screen/singup_screen/signup_screen.dart';
+import 'package:product_app/screen/signup_screen/signup_screen.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
 import 'package:product_app/screen/splash_screen/splash_screen.dart';

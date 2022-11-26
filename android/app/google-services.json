@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "978425409616",
-    "project_id": "product-app-36e31",
-    "storage_bucket": "product-app-36e31.appspot.com"
+    "project_number": "1070117406915",
+    "project_id": "zyena-product-app",
+    "storage_bucket": "zyena-product-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:978425409616:android:6a869de2669165e086e155",
+        "mobilesdk_app_id": "1:1070117406915:android:53fda5d8eebc2d3450ba76",
         "android_client_info": {
           "package_name": "com.app.product_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "978425409616-8fpdibf44lf6hmlqcp2kik453bnhnfmc.apps.googleusercontent.com",
+          "client_id": "1070117406915-iec5mb3givkbvvt75sbjb5kkuks14df7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.product_app",
+            "certificate_hash": "63feff0c81384fea5c22092a51cd93463747d7e4"
+          }
+        },
+        {
+          "client_id": "1070117406915-crso6rpotq2cn729uftn8ju9v1iq180j.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDHeILlo9nD53XudkmTS35foEqs2nc9eV0"
+          "current_key": "AIzaSyBBIuvqxWi1msSKdKdceaExH8xH_f7xu30"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "978425409616-8fpdibf44lf6hmlqcp2kik453bnhnfmc.apps.googleusercontent.com",
+              "client_id": "1070117406915-crso6rpotq2cn729uftn8ju9v1iq180j.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

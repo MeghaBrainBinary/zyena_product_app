@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:product_app/utils/color_res.dart';
 
 TextFormField appTextField(
     {TextEditingController? controller,
+    bool? obscureText,
+    bool? enabled,
     Widget? prefixIcon,
+    TextInputType? keyboardType,
     String? hintText,
+    TextStyle? style,
     TextStyle? hintStyle}) {
   return TextFormField(
+    style: style ?? TextStyle(color: ColorRes.black),
+    enabled: enabled ?? true,
+    obscureText: obscureText ?? false,
+    keyboardType: keyboardType ?? TextInputType.text,
     controller: controller,
     decoration: InputDecoration(
       contentPadding: EdgeInsets.only(left: Get.width * 0.05),

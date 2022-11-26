@@ -8,7 +8,12 @@ import 'package:get/get.dart';
 
 NewOrderController newOrderController = Get.put(NewOrderController());
 
-Widget dropDownAndPlusButtonRow({required BuildContext context}) {
+Widget dropDownAndPlusButton({
+  required BuildContext context,
+  required List<String> items,
+  required RxString hintText,
+  required RxString selectedValue,
+}) {
   return Row(
     children: [
       Expanded(
@@ -35,15 +40,18 @@ Widget dropDownAndPlusButtonRow({required BuildContext context}) {
 
                   // hint text
                   hint: Text(
-                    newOrderController.selectProduct.value,
-                    style: appTextStyle(
-                        color: ColorRes.skyBlue,
-                        fontSize: 13,
-                        weight: FontWeight.w300),
+                    hintText.value,
+                    style: (hintText.value == "select product" ||
+                            hintText.value == "customer name")
+                        ? appTextStyle(
+                            color: ColorRes.skyBlue,
+                            fontSize: 13,
+                            weight: FontWeight.w300)
+                        : TextStyle(color: ColorRes.black),
                   ),
 
                   // Array list of items
-                  items: newOrderController.products.map((String items) {
+                  items: items.map((String items) {
                     return DropdownMenuItem(
                       value: items,
                       child: Text(items),
@@ -53,14 +61,20 @@ Widget dropDownAndPlusButtonRow({required BuildContext context}) {
                   // After selecting the desired option,it will
                   // change button value to selected value
                   onChanged: (String? newValue) {
-                    newOrderController.selectProduct.value = newValue!;
+                    selectedValue.value = newValue!;
                   },
                 )))),
       ),
       sizedBoxWidth(width: 0.05),
       InkWell(
         onTap: () {
-          newOrderController.plusOnTap(context: context);
+          newOrderController.productNameController.value.clear();
+          newOrderController.customerNameController.value.clear();
+          if (hintText.value == "select product") {
+            newOrderController.productPlusOnTap(context: context);
+          } else {
+            newOrderController.customerNamePlusOnTap(context: context);
+          }
         },
         child: Stack(
           alignment: Alignment.center,

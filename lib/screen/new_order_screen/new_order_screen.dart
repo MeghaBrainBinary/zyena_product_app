@@ -26,7 +26,7 @@ class NewOrderScreen extends StatelessWidget {
               flex: 0,
               child: searchBar(
                 title: StringRes.newOrder,
-                controller: newOrderController.searchController,
+                controller: newOrderController.searchController.value,
               ),
             ),
             Expanded(
@@ -54,47 +54,84 @@ class NewOrderScreen extends StatelessWidget {
                                   offset: const Offset(1, 1),
                                   color: Colors.grey.withOpacity(0.3))
                             ]),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            titleWithTextField(
-                                title: StringRes.customerName,
-                                hintText: StringRes.customerName.toLowerCase(),
-                                controller:
-                                    newOrderController.customerNameController),
-                            sizedBoxHeight(height: 0.03),
-                            Text(
-                              StringRes.product,
-                              style: appTextStyle(
-                                  color: ColorRes.skyBlue,
-                                  fontSize: 15,
-                                  weight: FontWeight.w500),
-                            ),
-                            sizedBoxHeight(height: 0.02),
-                            dropDownAndPlusButtonRow(context: context),
-                            sizedBoxHeight(height: 0.03),
-                            titleWithTextField(
-                                title: StringRes.orderDate,
-                                hintText: StringRes.date.toLowerCase(),
-                                controller:
-                                    newOrderController.orderDateController),
-                            sizedBoxHeight(height: 0.03),
-                            titleWithTextField(
-                                title: StringRes.expirationDate,
-                                hintText: StringRes.date.toLowerCase(),
-                                controller:
-                                    newOrderController.expirationController),
-                            sizedBoxHeight(height: 0.03),
-                            titleWithTextField(
-                                title: StringRes.contactNumber,
-                                hintText: StringRes.contactNumber.toLowerCase(),
-                                controller:
-                                    newOrderController.contactNumberController),
-                            sizedBoxHeight(height: 0.03),
-                          ],
+                        child: Obx(
+                          () => Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                StringRes.customerName,
+                                style: appTextStyle(
+                                    color: ColorRes.skyBlue,
+                                    fontSize: 15,
+                                    weight: FontWeight.w500),
+                              ),
+                              sizedBoxHeight(height: 0.02),
+                              dropDownAndPlusButton(
+                                context: context,
+                                items: newOrderController.customerNames,
+                                hintText: newOrderController.customerName,
+                                selectedValue: newOrderController.customerName,
+                              ),
+                              sizedBoxHeight(height: 0.03),
+                              Text(
+                                StringRes.product,
+                                style: appTextStyle(
+                                    color: ColorRes.skyBlue,
+                                    fontSize: 15,
+                                    weight: FontWeight.w500),
+                              ),
+                              sizedBoxHeight(height: 0.02),
+                              dropDownAndPlusButton(
+                                context: context,
+                                items: newOrderController.products,
+                                hintText: newOrderController.selectProduct,
+                                selectedValue: newOrderController.selectProduct,
+                              ),
+                              sizedBoxHeight(height: 0.03),
+                              InkWell(
+                                onTap: () {
+                                  newOrderController.orderDateOnTap(
+                                      context: context);
+                                },
+                                child: titleWithTextField(
+                                    enabled: false,
+                                    title: StringRes.orderDate,
+                                    hintText: StringRes.date.toLowerCase(),
+                                    controller: newOrderController
+                                        .orderDateController.value),
+                              ),
+                              sizedBoxHeight(height: 0.03),
+                              InkWell(
+                                onTap: () {
+                                  newOrderController.expirationDateOnTap(
+                                      context: context);
+                                },
+                                child: titleWithTextField(
+                                    enabled: false,
+                                    title: StringRes.expirationDate,
+                                    hintText: StringRes.date.toLowerCase(),
+                                    controller: newOrderController
+                                        .expirationController.value),
+                              ),
+                              sizedBoxHeight(height: 0.03),
+                              titleWithTextField(
+                                  keyboardType: TextInputType.number,
+                                  title: StringRes.contactNumber,
+                                  hintText:
+                                      StringRes.contactNumber.toLowerCase(),
+                                  controller: newOrderController
+                                      .contactNumberController.value),
+                              sizedBoxHeight(height: 0.03),
+                            ],
+                          ),
                         ),
                       ),
-                      button(text: StringRes.add, onTap: () {}),
+                      button(
+                          text: StringRes.add,
+                          onTap: () {
+                            print("jsubghty");
+                            newOrderController.addOnTap();
+                          }),
                     ],
                   ),
                 ),

@@ -10,6 +10,7 @@ class StringRes {
   static String signupSmall = "sign up";
   static String confirmPassword = "confirm password";
   static String alredyHaveAnAccount = "Already have an account?";
+  static String userName = "user name";
 
   ///--------------------------------- home screen -------------------------------///
   static String agenciesCHENNAI = "AGENCIES CHENNAI";
@@ -34,6 +35,7 @@ class StringRes {
   static String add = "Add";
   static String productName = "product name";
   static String addProduct = "Add Product";
+  static String addCustomerName = "Add Customer Name";
 
   ///----------------------------------- order list screen ----------------------------------///
   static String srNo = "Sr no.";
@@ -57,4 +59,16 @@ class StringRes {
 
   ///------------------------------------ pending service screen ----------------------------------///
   static String service = "Service";
+
+  ///----------------------------------------- validation -----------------------------------------///
+  static String error = "Error";
+  static String success = "Success";
+  static String nameE = "Please enter name";
+  static String emailE = "Please enter email";
+  static String emailValidE = "Please enter valid email";
+  static String passwordE = "Please enter password";
+  static String confirmPasswordE = "Please enter confirm password";
+
+  static String signupSuccessful = "Signup Successful";
+  static String admin = "Admin";
 }
