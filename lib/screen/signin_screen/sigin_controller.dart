@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:product_app/common/snackbar.dart';
+import 'package:product_app/globals/global.dart';
+import 'package:product_app/helpers/prefkeys.dart';
+import 'package:product_app/helpers/prefs.dart';
 import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/string_res.dart';
 
@@ -57,6 +60,10 @@ class SigInController extends GetxController implements GetxService {
           snakBar(title: StringRes.success, text: "Login Successful");
           // HomePageController homePageController = Get.put(HomePageController());
           // homePageController.onInit();
+          PrefService.setValue(PrefKeys.uid, user.user!.uid.toString());
+          print("uid ${user.user!.uid}");
+          Global.uid = user.user!.uid;
+          print("global uid ${Global.uid}");
 
           Get.offNamedUntil(AppRoutes.homePage, (route) => false);
         }

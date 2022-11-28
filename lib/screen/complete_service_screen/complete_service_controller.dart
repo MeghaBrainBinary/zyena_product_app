@@ -4,7 +4,7 @@ import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/color_res.dart';
 
 class CompleteServiceController extends GetxController implements GetxService {
-  TextEditingController searchController = TextEditingController();
+  Rx<TextEditingController> searchController = TextEditingController().obs;
 
   Widget verticalDivider = VerticalDivider(
     color: ColorRes.color9A9ABF,

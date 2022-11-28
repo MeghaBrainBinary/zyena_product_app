@@ -1,15 +1,12 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:product_app/screen/complete_service_screen/complete_service_screen.dart';
-import 'package:product_app/screen/delivered_screen/delivered_screen.dart';
 import 'package:product_app/screen/home_screen/home_screen.dart';
 import 'package:product_app/screen/new_order_screen/new_order_screen.dart';
 import 'package:product_app/screen/new_service_screen/new_service_controller.dart';
 import 'package:product_app/screen/new_service_screen/new_service_screen.dart';
 import 'package:product_app/screen/order_list_screen/order_list_screen.dart';
-import 'package:product_app/screen/pending_order_screen/pending_order_screen.dart';
 import 'package:product_app/screen/pending_service_screen/pending_service_screen.dart';
-import 'package:product_app/screen/return_order_screen/return_order_screen.dart';
 import 'package:product_app/screen/signin_screen/signin_screen.dart';
 import 'package:product_app/screen/signup_screen/signup_screen.dart';
 // ignore: depend_on_referenced_packages
@@ -40,12 +37,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: AppRoutes.sigInPage, page: () => SignInScreen()),
         GetPage(name: AppRoutes.homePage, page: () => HomeScreen()),
         GetPage(name: AppRoutes.newOrderPage, page: () => NewOrderScreen()),
-        GetPage(name: AppRoutes.orderListPage, page: () => OrderListScreen()),
-        GetPage(
-            name: AppRoutes.pendingOrderPage, page: () => PendingOrderScreen()),
-        GetPage(name: AppRoutes.deliveredPage, page: () => DeliveredScreen()),
-        GetPage(
-            name: AppRoutes.returnOrderPage, page: () => ReturnOrderScreen()),
+        GetPage(name: AppRoutes.orderListPage, page: () => OrderScreen()),
         GetPage(name: AppRoutes.newServicePage, page: () => NewServiceScreen()),
         GetPage(
             name: AppRoutes.pendingServicePage,

@@ -1,154 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:product_app/common/loaders.dart';
 import 'package:product_app/common/search_bar.dart';
+import 'package:product_app/screen/home_screen/widgets/rowlists.dart';
 import 'package:product_app/screen/order_list_screen/order_list_controller.dart';
 import 'package:product_app/common/data_table.dart';
 import 'package:product_app/utils/string_res.dart';
 import 'package:get/get.dart';
 
-class OrderListScreen extends StatelessWidget {
-  OrderListScreen({super.key});
+// ignore: must_be_immutable
+class OrderScreen extends StatelessWidget {
+  List<DataColumn>? columnList = [];
+  List<DataRow>? rowList = [];
+  String? title = "";
+  String? hintText;
+  Stream? stream;
+  TextEditingController? controller;
 
-  final OrderListController orderListController =
-      Get.put(OrderListController());
+  OrderScreen({
+    super.key,
+    this.columnList,
+    this.rowList,
+    this.title,
+    this.controller,
+    this.stream,
+    this.hintText,
+  });
+
+  final OrderController orderListController = Get.put(OrderController());
+
+  List items = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: Get.height,
-        child: Column(
-          children: [
-            Expanded(
-              flex: 0,
-              child: searchBar(
-                title: StringRes.orderList,
-                controller: orderListController.searchController,
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: Get.height,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 0,
+                child: searchBar(
+                  hintText: hintText,
+                  title: title!,
+                  controller: controller!.obs,
+                ),
               ),
-            ),
-            Expanded(
-              child: dataTable(
-                context: context,
-                columns: [
-                  DataColumn(
-                    label: Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          StringRes.srNo,
-                          style: orderListController.columnTextStyle,
+              Expanded(
+                child: StreamBuilder(
+                  stream: orderListController.stream,
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text("ERROR : ${snapshot.error}"),
+                      );
+                    } else if (snapshot.hasData) {
+                      items.add(snapshot.data.docs);
+                      return Obx(
+                        () => dataTable(
+                          context: context,
+                          columns: columnList!,
+                          rows: (title == StringRes.orderList)
+                              ? orderListController.orderListDataRows(
+                                  list: snapshot.data.docs)
+                              : (title == StringRes.pendingOrder)
+                                  ? orderListController.pendingOrderDataRows(
+                                      list: snapshot.data.docs)
+                                  : (title == StringRes.delivered)
+                                      ? orderListController.deliveredDataRows(
+                                          list: snapshot.data.docs)
+                                      : orderListController.retuenOrderDataRows(
+                                          list: snapshot.data.docs),
                         ),
-                      ),
-                    ),
-                  ),
-                  DataColumn(label: verticalDivider),
-                  DataColumn(
-                    label: Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          StringRes.customerName,
-                          style: orderListController.columnTextStyle,
-                        ),
-                      ),
-                    ),
-                  ),
-                  DataColumn(label: verticalDivider),
-                  DataColumn(
-                    label: Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          StringRes.productName,
-                          style: orderListController.columnTextStyle,
-                        ),
-                      ),
-                    ),
-                  ),
-                  DataColumn(label: verticalDivider),
-                  DataColumn(
-                    label: Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          StringRes.orderDate,
-                          style: orderListController.columnTextStyle,
-                        ),
-                      ),
-                    ),
-                  ),
-                  DataColumn(label: verticalDivider),
-                  DataColumn(
-                    label: Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          StringRes.deliveryDate,
-                          style: orderListController.columnTextStyle,
-                        ),
-                      ),
-                    ),
-                  ),
-                  DataColumn(label: verticalDivider),
-                  DataColumn(
-                    label: Expanded(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text(
-                          StringRes.contactNumberSmall,
-                          style: orderListController.columnTextStyle,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-                rows: orderListController.listOfRows
-                    .map(
-                      ((element) => DataRow(
-                            cells: <DataCell>[
-                              DataCell(Center(
-                                child: Text(
-                                  element["num"].toString(),
-                                  style: orderListController.rowTextStyle,
-                                ),
-                              )), //Extracting from Map element the value
-                              DataCell(element["divider"]),
-                              DataCell(Center(
-                                  child: Text(
-                                element["customer_name"],
-                                style: orderListController.rowTextStyle,
-                              ))),
-                              DataCell(element["divider"]),
-                              DataCell(Center(
-                                  child: Text(
-                                element["product_name"],
-                                style: orderListController.rowTextStyle,
-                              ))),
-                              DataCell(element["divider"]),
-                              DataCell(Center(
-                                  child: Text(
-                                element["order_date"],
-                                style: orderListController.rowTextStyle,
-                              ))),
-                              DataCell(element["divider"]),
-                              DataCell(Center(
-                                  child: Text(
-                                element["delivery_date"],
-                                style: orderListController.rowTextStyle,
-                              ))),
-
-                              DataCell(element["divider"]),
-                              DataCell(Center(
-                                  child: Text(
-                                element["contact_number"],
-                                style: orderListController.rowTextStyle,
-                              ))),
-                            ],
-                          )),
-                    )
-                    .toList(),
+                      );
+                    }
+                    return const Center(
+                      child: SmallLoader(),
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

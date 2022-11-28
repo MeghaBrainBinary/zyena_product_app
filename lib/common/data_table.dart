@@ -30,15 +30,15 @@ Widget dataTable(
                       color: Colors.grey.shade300)
                 ]),
                 dataRowHeight: Get.height * 0.055,
-                columnSpacing: 5,
-                horizontalMargin: 10,
+                columnSpacing: 1,
+                horizontalMargin: 5,
                 dividerThickness: 0.0,
                 dataRowColor:
                     MaterialStateColor.resolveWith((states) => ColorRes.white),
                 headingRowHeight: Get.height * 0.055,
                 headingTextStyle: appTextStyle(
                     color: ColorRes.white,
-                    fontSize: 16,
+                    fontSize: 14,
                     weight: FontWeight.w500),
                 headingRowColor: MaterialStateColor.resolveWith(
                     (states) => ColorRes.skyBlue),

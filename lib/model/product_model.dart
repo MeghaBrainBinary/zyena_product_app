@@ -12,35 +12,55 @@ class ProductModel {
 
 class NewOrderModel {
   String? customerName;
+  String? status;
+  String? dueDate;
+  String? deliverCancel;
+  String? deliveredDate;
   String? product;
   String? orderDate;
   String? expirationDate;
   String? contactNumber;
   String? uid;
+  String? id;
 
   NewOrderModel({
+    this.status,
+    this.dueDate,
+    this.deliverCancel,
+    this.deliveredDate,
     this.customerName,
     this.product,
     this.orderDate,
     this.expirationDate,
     this.contactNumber,
     this.uid,
+    this.id,
   });
 
   factory NewOrderModel.fromMap(Map<String, dynamic> data) => NewOrderModel(
+      status: data['status'],
+      deliverCancel: data['deliverCancel'],
+      deliveredDate: data['deliveredDate'],
+      dueDate: data['dueDate'],
       customerName: data['customerName'],
       product: data['product'],
       orderDate: data['orderDate'],
       expirationDate: data['expirationDate'],
       uid: data["uid"],
+      id: data['id'],
       contactNumber: data['contactNumber']);
 
   Map<String, dynamic> toMap() => {
+        "id": id,
         "customerName": customerName,
         "product": product,
         "orderDate": orderDate,
         "expirationDate": expirationDate,
         "contactNumber": contactNumber,
+        "status": status,
+        "dueDate": dueDate,
+        "deliverCancel": deliverCancel,
+        "deliveredDate": deliveredDate,
       };
 }
 

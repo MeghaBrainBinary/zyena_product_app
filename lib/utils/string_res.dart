@@ -33,7 +33,7 @@ class StringRes {
   static String date = "Date";
   static String contactNumber = "Contact Number";
   static String add = "Add";
-  static String productName = "product name";
+  static String productName = "Product Name";
   static String addProduct = "Add Product";
   static String addCustomerName = "Add Customer Name";
 

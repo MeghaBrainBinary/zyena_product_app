@@ -1,5 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:product_app/globals/global.dart';
 import 'package:product_app/helpers/prefkeys.dart';
 import 'package:product_app/helpers/prefs.dart';
 import 'package:product_app/model/product_model.dart';
@@ -27,8 +28,9 @@ class UserService {
   Future<void> addNewOrder(NewOrderModel newOrderModel) async {
     try {
       await users
-          .doc(PrefService.getString(PrefKeys.uid))
-          .set(newOrderModel.toMap());
+          .doc(Global.uid)
+          .collection(FireStoreCollections.newOrder)
+          .add(newOrderModel.toMap());
     } catch (e) {
       throw e.toString();
     }
@@ -39,6 +41,7 @@ class UserService {
 class FirebaseHelper {
   FirebaseHelper._();
   static final FirebaseHelper firebaseHelper = FirebaseHelper._();
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
   CollectionReference users =
       FirebaseFirestore.instance.collection(FireStoreCollections.users);
 
@@ -49,6 +52,14 @@ class FirebaseHelper {
           .doc(PrefService.getString(PrefKeys.uid).toString())
           .collection("New Order")
           .add(newOrderModel.toMap());
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future<void> addNewOrder2(Map<String, dynamic> map) async {
+    try {
+      await users.doc(Global.uid).collection("NewOrder").add(map);
     } catch (e) {
       throw e.toString();
     }

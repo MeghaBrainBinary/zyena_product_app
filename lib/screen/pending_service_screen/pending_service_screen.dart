@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:product_app/common/data_table.dart';
 import 'package:product_app/common/search_bar.dart';
-import 'package:product_app/screen/pending_order_screen/pending_order_controller.dart';
 import 'package:product_app/screen/pending_service_screen/pending_service_controller.dart';
 import 'package:product_app/utils/string_res.dart';
 
@@ -19,12 +18,12 @@ class PendingServiceScreen extends StatelessWidget {
         height: Get.height,
         child: Column(
           children: [
-            Expanded(
-              flex: 0,
-              child: searchBar(
-                  title: StringRes.pendingService,
-                  controller: pendingServiceController.searchController),
-            ),
+            // Expanded(
+            //   flex: 0,
+            //   child: searchBar(
+            //       title: StringRes.pendingService,
+            //       controller: pendingServiceController.searchController),
+            // ),
             Expanded(
               child: dataTable(
                 context: context,

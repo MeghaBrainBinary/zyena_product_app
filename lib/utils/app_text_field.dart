@@ -10,8 +10,10 @@ TextFormField appTextField(
     TextInputType? keyboardType,
     String? hintText,
     TextStyle? style,
+    void Function(String)? onChanged,
     TextStyle? hintStyle}) {
   return TextFormField(
+    onChanged: onChanged,
     style: style ?? TextStyle(color: ColorRes.black),
     enabled: enabled ?? true,
     obscureText: obscureText ?? false,

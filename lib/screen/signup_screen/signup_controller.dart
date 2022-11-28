@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:product_app/common/snackbar.dart';
+import 'package:product_app/globals/global.dart';
 import 'package:product_app/helpers/prefkeys.dart';
 import 'package:product_app/helpers/prefs.dart';
 import 'package:product_app/utils/app_state.dart';
@@ -93,6 +94,7 @@ class SignupController extends GetxController implements GetxService {
             );
             userModel.profilePicture = "";
             userModel.uid = user.user!.uid;
+            Global.uid = user.user!.uid;
             PrefService.setValue(PrefKeys.uid, user.user!.uid.toString());
             userModel.isAdmin = true;
             userModel.userType = "Admin";

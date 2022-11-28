@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:product_app/common/sizedbox.dart';
+import 'package:product_app/globals/global.dart';
+import 'package:product_app/screen/home_screen/widgets/rowlists.dart';
+import 'package:product_app/screen/order_list_screen/order_list_controller.dart';
+import 'package:product_app/service/user_service.dart';
 import 'package:product_app/utils/app_text_field.dart';
 import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
+import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 import 'package:get/get.dart';
 
+OrderController orderController = Get.put(OrderController());
+
 Widget searchBar(
     {required String title,
-    required TextEditingController controller,
+    required Rx<TextEditingController> controller,
     String? hintText}) {
   return Stack(
     children: [
@@ -74,15 +81,20 @@ Widget searchBar(
                       offset: const Offset(1, 1),
                       color: Colors.grey.withOpacity(0.3))
                 ]),
-            child: appTextField(
-              controller: controller,
-              prefixIcon: Transform.scale(
-                  scale: 0.5, child: Image.asset(AssetRes.searchIcon)),
-              hintText: (hintText == null) ? StringRes.searchOrder : hintText,
-              hintStyle: appTextStyle(
-                  color: ColorRes.skyBlue,
-                  fontSize: 13,
-                  weight: FontWeight.w300),
+            child: Obx(
+              () => appTextField(
+                onChanged: (val) async {
+                  orderController.val.value = val;
+                },
+                controller: controller.value,
+                prefixIcon: Transform.scale(
+                    scale: 0.5, child: Image.asset(AssetRes.searchIcon)),
+                hintText: (hintText == null) ? StringRes.searchOrder : hintText,
+                hintStyle: appTextStyle(
+                    color: ColorRes.skyBlue,
+                    fontSize: 13,
+                    weight: FontWeight.w300),
+              ),
             ),
           ),
         ],

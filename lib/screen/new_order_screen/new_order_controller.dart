@@ -28,6 +28,8 @@ class NewOrderController extends GetxController implements GetxService {
   String date = "";
   String month = "";
   String year = "";
+  RxBool loader = false.obs;
+  UserService userService = UserService();
 
   String errorCustomerName = "";
   String errorProductName = "";
@@ -92,16 +94,37 @@ class NewOrderController extends GetxController implements GetxService {
     return false;
   }
 
+  int id = 1;
+
   /// add button on tap
   addOnTap() async {
     if (validator()) {
-      await FirebaseHelper.firebaseHelper.addNewOrder(NewOrderModel(
-        contactNumber: contactNumberController.value.text,
+      loader.value = true;
+      await userService.addNewOrder(NewOrderModel(
+        id: "${id++}",
         customerName: customerName.value,
         product: selectProduct.value,
         orderDate: orderDateController.value.text,
         expirationDate: expirationController.value.text,
+        contactNumber: contactNumberController.value.text,
+        status: "pending",
+        deliverCancel: "Deliver",
+        deliveredDate: "00/00/0000",
+        dueDate: "00/00/0000",
       ));
+      // await FirebaseHelper.firebaseHelper.addNewOrder2({
+      //   "contactNumber": contactNumberController.value.text,
+      //   "customerName": customerName.value,
+      //   "product": selectProduct.value,
+      //   "orderDate": orderDateController.value.text,
+      //   "expirationDate": expirationController.value.text,
+      // });
+      loader.value = false;
+      customerName.value = StringRes.customerName.toLowerCase();
+      selectProduct.value = StringRes.selectProduct;
+      orderDateController.value.clear();
+      expirationController.value.clear();
+      contactNumberController.value.clear();
     } else {
       if (customerName.value == StringRes.customerName.toLowerCase()) {
         snakBar(title: StringRes.error, text: "Please enter customer name");
@@ -245,7 +268,7 @@ class NewOrderController extends GetxController implements GetxService {
                         titleWithTextField(
                             title: StringRes.product,
                             hintText: StringRes.productName.toLowerCase(),
-                            controller: productNameController.value),
+                            controller: productNameController),
                         sizedBoxHeight(height: 0.05),
                       ],
                     ),
@@ -339,7 +362,7 @@ class NewOrderController extends GetxController implements GetxService {
                             title:
                                 StringRes.customerName.toString().split(" ")[0],
                             hintText: StringRes.customerName.toLowerCase(),
-                            controller: customerNameController.value),
+                            controller: customerNameController),
                         sizedBoxHeight(height: 0.05),
                       ],
                     ),

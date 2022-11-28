@@ -4,7 +4,10 @@ import 'package:product_app/common/button.dart';
 import 'package:product_app/common/search_bar.dart';
 import 'package:product_app/common/sizedbox.dart';
 import 'package:product_app/common/title_with_textfield.dart';
+import 'package:product_app/screen/new_order_screen/widget/dropdown_button.dart';
 import 'package:product_app/screen/new_service_screen/new_service_controller.dart';
+import 'package:product_app/utils/appstyle.dart';
+import 'package:product_app/utils/color_res.dart';
 import 'package:product_app/utils/string_res.dart';
 
 class NewServiceScreen extends StatelessWidget {
@@ -55,11 +58,20 @@ class NewServiceScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            titleWithTextField(
-                                title: StringRes.customerName,
-                                hintText: StringRes.customerName.toLowerCase(),
-                                controller: newServiceController
-                                    .customerNameController),
+                            Text(
+                              StringRes.customerName,
+                              style: appTextStyle(
+                                  color: ColorRes.skyBlue,
+                                  fontSize: 15,
+                                  weight: FontWeight.w500),
+                            ),
+                            sizedBoxHeight(height: 0.02),
+                            dropDown(
+                              context: context,
+                              items: newServiceController.customerNames,
+                              hintText: newServiceController.customerName,
+                              selectedValue: newServiceController.customerName,
+                            ),
                             sizedBoxHeight(height: 0.03),
                             titleWithTextField(
                                 title: StringRes.date,
