@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 // ignore: depend_on_referenced_packages
@@ -58,12 +59,15 @@ class SigInController extends GetxController implements GetxService {
         if (user.user!.uid.isNotEmpty) {
           loader.value = false;
           snakBar(title: StringRes.success, text: "Login Successful");
-          // HomePageController homePageController = Get.put(HomePageController());
-          // homePageController.onInit();
+
           PrefService.setValue(PrefKeys.uid, user.user!.uid.toString());
-          print("uid ${user.user!.uid}");
+          if (kDebugMode) {
+            print("uid ${user.user!.uid}");
+          }
           Global.uid = user.user!.uid;
-          print("global uid ${Global.uid}");
+          if (kDebugMode) {
+            print("global uid ${Global.uid}");
+          }
 
           Get.offNamedUntil(AppRoutes.homePage, (route) => false);
         }
@@ -89,10 +93,6 @@ class SigInController extends GetxController implements GetxService {
       }
     }
   }
-
-  // void signInOnTap() {
-  //   Get.offNamedUntil(AppRoutes.homePage, (route) => false);
-  // }
 
   @override
   void onInit() {

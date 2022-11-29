@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:product_app/common/sizedbox.dart';
-import 'package:product_app/globals/global.dart';
-import 'package:product_app/screen/home_screen/widgets/rowlists.dart';
-import 'package:product_app/screen/order_list_screen/order_list_controller.dart';
-import 'package:product_app/service/user_service.dart';
+import 'package:product_app/screen/order_screen/order_controller.dart';
 import 'package:product_app/utils/app_text_field.dart';
 import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
-import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 
 OrderController orderController = Get.put(OrderController());

@@ -1,10 +1,12 @@
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+// ignore: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:product_app/globals/global.dart';
 import 'package:product_app/model/product_model.dart';
-import 'package:product_app/screen/home_screen/widgets/columnlists.dart';
-import 'package:product_app/screen/order_list_screen/order_list_controller.dart';
-import 'package:product_app/screen/order_list_screen/order_list_screen.dart';
+import 'package:product_app/screen/order_screen/order_controller.dart';
+import 'package:product_app/screen/order_screen/order_screen.dart';
+import 'package:product_app/screen/order_screen/widgets/column_lists.dart';
 import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
@@ -40,55 +42,75 @@ class HomePageController extends GetxController implements GetxService {
       controller: orderController.orderListSearchController.value,
       columnList: orderListColumnList,
       title: StringRes.orderList,
-      // stream: orderListStream,
+      stream: orderController.stream,
     ));
   }
 
   void pendingOrderOnTap() {
-    Get.to(OrderScreen(
-      hintText: StringRes.searchPendingOrder,
-      controller: orderController.pendingOrderSearchController.value,
-      columnList: pendingOrderColumnList,
-      title: StringRes.pendingOrder,
-      // stream: orderListStream,
-    ));
+    Get.to(
+      OrderScreen(
+        hintText: StringRes.searchPendingOrder,
+        controller: orderController.pendingOrderSearchController.value,
+        columnList: pendingOrderColumnList,
+        title: StringRes.pendingOrder,
+        stream: orderController.stream,
+      ),
+    );
   }
 
   void deliveredOnTap() {
-    Get.to(OrderScreen(
-      hintText: StringRes.searchDeliveredOrder,
-      controller: orderController.deliveredSearchController.value,
-      columnList: deliveredReturnColumnList,
-      title: StringRes.delivered,
-      // stream: orderListStream,
-    ));
+    Get.to(
+      OrderScreen(
+        hintText: StringRes.searchDeliveredOrder,
+        controller: orderController.deliveredSearchController.value,
+        columnList: deliveredReturnColumnList,
+        title: StringRes.delivered,
+        stream: orderController.stream,
+      ),
+    );
   }
 
+  /// return order onTap
   void returnOrderOnTap() {
-    Get.to(OrderScreen(
-      hintText: StringRes.searchReturnOrder,
-      controller: orderController.returnOrderSearchController.value,
-      columnList: deliveredReturnColumnList,
-      title: StringRes.returnOrder,
-      // stream: orderListStream,
-    ));
+    Get.to(
+      OrderScreen(
+        hintText: StringRes.searchReturnOrder,
+        controller: orderController.returnOrderSearchController.value,
+        columnList: deliveredReturnColumnList,
+        title: StringRes.returnOrder,
+        stream: orderController.stream,
+      ),
+    );
   }
 
+  /// new service onTap
   void newServiceOnTap() {
     Get.toNamed(
       AppRoutes.newServicePage,
     );
   }
 
+  /// pending service onTap
   void pendingServiceOnTap() {
-    Get.toNamed(
-      AppRoutes.pendingServicePage,
+    Get.to(
+      OrderScreen(
+        controller: orderController.pendingServiceController.value,
+        columnList: serviceColumnList,
+        title: StringRes.pendingService,
+        stream: orderController.serviceStream,
+      ),
     );
   }
 
+  /// complete service onTap
   void completeServiceOnTap() {
-    Get.toNamed(
-      AppRoutes.completeServicePage,
+    Get.to(
+      OrderScreen(
+        controller: orderController.completeServiceController.value,
+        columnList: serviceColumnList,
+        title: StringRes.completeService,
+        stream: orderController.serviceStream,
+      ),
     );
   }
 

@@ -35,6 +35,18 @@ class UserService {
       throw e.toString();
     }
   }
+
+  /// add new service data in firebase
+  Future<void> addNewService(NewServiceModel newServiceModel) async {
+    try {
+      await users
+          .doc(Global.uid)
+          .collection(FireStoreCollections.newService)
+          .add(newServiceModel.toMap());
+    } catch (e) {
+      throw e.toString();
+    }
+  }
 }
 
 /// singleton class

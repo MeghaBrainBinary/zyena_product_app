@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/common/button.dart';
 import 'package:product_app/common/sizedbox.dart';
@@ -20,10 +21,9 @@ class NewOrderController extends GetxController implements GetxService {
   Rx<TextEditingController> contactNumberController =
       TextEditingController().obs;
   Rx<TextEditingController> productNameController = TextEditingController().obs;
-
-  // RxString dropdownVal = "Product".obs;
   RxString selectProduct = StringRes.selectProduct.obs;
   RxString customerName = StringRes.customerName.toLowerCase().obs;
+
   DateTime? pickedOrderDate;
   String date = "";
   String month = "";
@@ -112,13 +112,7 @@ class NewOrderController extends GetxController implements GetxService {
         deliveredDate: "00/00/0000",
         dueDate: "00/00/0000",
       ));
-      // await FirebaseHelper.firebaseHelper.addNewOrder2({
-      //   "contactNumber": contactNumberController.value.text,
-      //   "customerName": customerName.value,
-      //   "product": selectProduct.value,
-      //   "orderDate": orderDateController.value.text,
-      //   "expirationDate": expirationController.value.text,
-      // });
+
       loader.value = false;
       customerName.value = StringRes.customerName.toLowerCase();
       selectProduct.value = StringRes.selectProduct;
@@ -126,10 +120,10 @@ class NewOrderController extends GetxController implements GetxService {
       expirationController.value.clear();
       contactNumberController.value.clear();
     } else {
-      if (customerName.value == StringRes.customerName.toLowerCase()) {
-        snakBar(title: StringRes.error, text: "Please enter customer name");
-      } else if (selectProduct.value == StringRes.selectProduct) {
-        snakBar(title: StringRes.error, text: "Please enter product");
+      if (errorCustomerName != "") {
+        snakBar(title: StringRes.error, text: errorCustomerName);
+      } else if (errorProductName != "") {
+        snakBar(title: StringRes.error, text: errorProductName);
       } else if (errorOrderDate != "") {
         snakBar(title: StringRes.error, text: errorOrderDate);
       } else if (errorExpirationDate != "") {
@@ -172,11 +166,12 @@ class NewOrderController extends GetxController implements GetxService {
           firstDate: DateTime(
               1998), //DateTime.now() - not to allow to choose before today.
           lastDate: pickedOrderDate!.subtract(const Duration(days: 1)));
-
-      date = pickedDate.toString().split(" ")[0].toString().split("-")[2];
-      month = pickedDate.toString().split(" ")[0].toString().split("-")[1];
-      year = pickedDate.toString().split(" ")[0].toString().split("-")[0];
-      expirationController.value.text = "$date/$month/$year";
+      if (pickedDate != null) {
+        date = pickedDate.toString().split(" ")[0].toString().split("-")[2];
+        month = pickedDate.toString().split(" ")[0].toString().split("-")[1];
+        year = pickedDate.toString().split(" ")[0].toString().split("-")[0];
+        expirationController.value.text = "$date/$month/$year";
+      }
     } else {
       snakBar(title: StringRes.error, text: "Please select order date first");
     }

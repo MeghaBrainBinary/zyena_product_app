@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/common/button.dart';
 import 'package:product_app/common/loaders.dart';
@@ -133,11 +134,11 @@ class NewOrderScreen extends StatelessWidget {
                             ),
                           ),
                           button(
-                              text: StringRes.add,
-                              onTap: () {
-                                print("jsubghty");
-                                newOrderController.addOnTap();
-                              }),
+                            text: StringRes.add,
+                            onTap: () {
+                              newOrderController.addOnTap();
+                            },
+                          ),
                         ],
                       ),
                     ),

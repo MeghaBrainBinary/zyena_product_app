@@ -9,7 +9,9 @@ import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
 import 'package:product_app/utils/string_res.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+// ignore: depend_on_referenced_packages
 import 'package:google_fonts/google_fonts.dart';
 
 final SigInController signInController = Get.put(SigInController());

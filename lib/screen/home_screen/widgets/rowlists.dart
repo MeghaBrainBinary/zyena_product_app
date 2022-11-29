@@ -264,3 +264,120 @@ retuenOrderDataRows({required List list}) {
         .toList(),
   ];
 }
+
+List pendingServiceData = [];
+pendingServiceDataRows({required List list}) {
+  int id = 1;
+
+  return <DataRow>[
+    ...list.map((e) {
+      return DataRow(cells: <DataCell>[
+        DataCell(
+          Expanded(
+            child: Center(
+              child: Text("${id++}"),
+            ),
+          ),
+        ),
+        DataCell(orderController.verticalDivider),
+        DataCell(
+          Expanded(
+            child: Center(
+              child: Text(
+                "${e['serviceCustomerName']}",
+                style: orderController.rowTextStyle,
+              ),
+            ),
+          ),
+        ),
+        DataCell(orderController.verticalDivider),
+        DataCell(
+          Expanded(
+            child: Center(
+              child: Text(
+                "${e['serviceRemark']}",
+                style: orderController.rowTextStyle,
+              ),
+            ),
+          ),
+        ),
+        DataCell(orderController.verticalDivider),
+        DataCell(
+          Expanded(
+            child: Center(
+              child: Text(
+                "${e['serviceDate']}",
+                style: orderController.rowTextStyle,
+              ),
+            ),
+          ),
+        ),
+        DataCell(orderController.verticalDivider),
+        DataCell(
+          Expanded(
+            child: Center(
+              child: Text(
+                "${e['serviceContactNumber']}",
+                style: orderController.rowTextStyle,
+              ),
+            ),
+          ),
+        ),
+      ]);
+    }),
+  ];
+}
+
+List completeServiceData = [];
+completeServiceDataRows({required List list}) {
+  completeServiceData = list.where((element) {
+    return element['serviceStatus'].contains("complete");
+  }).toList();
+  int i = 1;
+  return <DataRow>[
+    ...completeServiceData
+        .map((e) => DataRow(
+              cells: <DataCell>[
+                DataCell(Center(
+                  child: Text(
+                    "${i++}",
+                    style: orderController.rowTextStyle,
+                  ),
+                )), //Extracting from Map element the value
+                DataCell(
+                  orderController.verticalDivider,
+                ),
+                DataCell(Center(
+                    child: Text(
+                  "${e['serviceCustomerName']}",
+                  style: orderController.rowTextStyle,
+                ))),
+                DataCell(
+                  orderController.verticalDivider,
+                ),
+                DataCell(Center(
+                    child: Text(
+                  "${e['serviceRemark']}",
+                  style: orderController.rowTextStyle,
+                ))),
+                DataCell(
+                  orderController.verticalDivider,
+                ),
+                DataCell(Center(
+                    child: Text(
+                  "${e['serviceDate']}",
+                  style: orderController.rowTextStyle,
+                ))),
+                DataCell(
+                  orderController.verticalDivider,
+                ),
+                DataCell(Center(
+                    child: Text(
+                  "${e['serviceContactNumber']}",
+                  style: orderController.rowTextStyle,
+                ))),
+              ],
+            ))
+        .toList(),
+  ];
+}

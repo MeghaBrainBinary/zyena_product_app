@@ -3,6 +3,7 @@ import 'package:product_app/common/sizedbox.dart';
 import 'package:product_app/utils/app_text_field.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/color_res.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 
 Widget titleWithTextField(

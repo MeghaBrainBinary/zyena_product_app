@@ -4,7 +4,6 @@ import 'package:product_app/screen/home_screen/home_page_controller.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/screen/home_screen/widgets/container_with_text.dart';
-import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
@@ -209,27 +208,6 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
-          // Column(
-          //     children: [
-          //       Text("Select product"),
-          //       Obx(() => DropdownButton<ProductModel?>(
-          //         value: homePageController.product.value.name==null?null:homePageController.product.value,
-          //           hint: Text("Select Product"),
-          //           items: homePageController.productList.
-          //           map((ProductModel model) {
-          //             return DropdownMenuItem<ProductModel>(
-          //               value: model,
-          //               child: Text(model.name!),
-          //             );
-          //           }).toList(),
-          //           onChanged: (ProductModel? value) {
-          //             homePageController.onChange(value!);
-          //           })),
-          //       SizedBox(height: 20,),
-          //       Text(DateFormat('MMM d,yyyy').format(DateTime.now()))
-          //   ],
-          // )
         ),
       ),
     );

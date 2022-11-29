@@ -4,7 +4,9 @@ import 'package:product_app/screen/new_order_screen/new_order_controller.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+import 'package:product_app/utils/string_res.dart';
 
 NewOrderController newOrderController = Get.put(NewOrderController());
 
@@ -18,16 +20,17 @@ Widget dropDownAndPlusButton({
     children: [
       Expanded(
         child: Container(
-            padding: EdgeInsets.only(
-              left: Get.width * 0.05,
-              right: Get.width * 0.05,
-            ),
-            height: Get.height * 0.055,
-            decoration: BoxDecoration(
-              border: Border.all(color: ColorRes.skyBlue, width: 0.5),
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Obx((() => DropdownButton(
+          padding: EdgeInsets.only(
+            left: Get.width * 0.05,
+            right: Get.width * 0.05,
+          ),
+          height: Get.height * 0.055,
+          decoration: BoxDecoration(
+            border: Border.all(color: ColorRes.skyBlue, width: 0.5),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Obx(
+            (() => DropdownButton(
                   underline: const SizedBox(),
 
                   // Down Arrow Icon
@@ -41,8 +44,9 @@ Widget dropDownAndPlusButton({
                   // hint text
                   hint: Text(
                     hintText.value,
-                    style: (hintText.value == "select product" ||
-                            hintText.value == "customer name")
+                    style: (hintText.value == StringRes.selectProduct ||
+                            hintText.value ==
+                                StringRes.customerName.toLowerCase())
                         ? appTextStyle(
                             color: ColorRes.skyBlue,
                             fontSize: 13,
@@ -63,7 +67,9 @@ Widget dropDownAndPlusButton({
                   onChanged: (String? newValue) {
                     selectedValue.value = newValue!;
                   },
-                )))),
+                )),
+          ),
+        ),
       ),
       sizedBoxWidth(width: 0.05),
       InkWell(
@@ -138,8 +144,9 @@ Widget dropDown({
                   // hint text
                   hint: Text(
                     hintText.value,
-                    style: (hintText.value == "select product" ||
-                            hintText.value == "customer name")
+                    style: (hintText.value == StringRes.selectProduct ||
+                            hintText.value ==
+                                StringRes.contactNumber.toLowerCase())
                         ? appTextStyle(
                             color: ColorRes.skyBlue,
                             fontSize: 13,

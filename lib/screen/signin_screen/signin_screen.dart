@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/common/loaders.dart';
 import 'package:product_app/screen/signin_screen/sigin_controller.dart';
