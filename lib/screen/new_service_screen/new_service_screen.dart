@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/common/button.dart';
 import 'package:product_app/common/loaders.dart';
@@ -30,20 +31,21 @@ class NewServiceScreen extends StatelessWidget {
                 Expanded(
                   flex: 0,
                   child: searchBar(
+                      isSearch: false,
                       title: StringRes.newService,
                       controller: newServiceController.searchController),
                 ),
                 Expanded(
                   child: SingleChildScrollView(
-                    // physics: const NeverScrollableScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     child: Padding(
-                      padding: const EdgeInsets.only(bottom: 50),
+                      padding: const EdgeInsets.only(bottom: 50, top: 10),
                       child: Stack(
                         alignment: const Alignment(0, 1.08),
                         children: [
                           Container(
                             width: Get.width,
-                            height: Get.height / 1.58,
+                            height: Get.height * 0.65,
                             margin: const EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 10),
                             padding: const EdgeInsets.symmetric(
@@ -65,9 +67,10 @@ class NewServiceScreen extends StatelessWidget {
                                 Text(
                                   StringRes.customerName,
                                   style: appTextStyle(
-                                      color: ColorRes.skyBlue,
-                                      fontSize: 15,
-                                      weight: FontWeight.w500),
+                                    color: ColorRes.skyBlue,
+                                    fontSize: 15,
+                                    weight: FontWeight.w500,
+                                  ),
                                 ),
                                 sizedBoxHeight(height: 0.02),
                                 dropDown(
@@ -87,29 +90,31 @@ class NewServiceScreen extends StatelessWidget {
                                       enabled: false,
                                       title: StringRes.date,
                                       hintText: StringRes.date.toLowerCase(),
-                                      controller:
-                                          newServiceController.dateController),
+                                      controller: newServiceController
+                                          .dateController.value),
                                 ),
                                 sizedBoxHeight(height: 0.03),
                                 titleWithTextField(
                                     title: StringRes.remark,
                                     hintText: StringRes.remark.toLowerCase(),
-                                    controller:
-                                        newServiceController.remarkController),
+                                    controller: newServiceController
+                                        .remarkController.value),
                                 sizedBoxHeight(height: 0.03),
                                 titleWithTextField(
+                                    keyboardType: TextInputType.number,
                                     title: StringRes.contactNumber,
                                     hintText:
                                         StringRes.contactNumber.toLowerCase(),
                                     controller: newServiceController
-                                        .contactNumberController),
+                                        .contactNumberController.value),
                                 sizedBoxHeight(height: 0.03),
                               ],
                             ),
                           ),
                           button(
-                              text: StringRes.add,
-                              onTap: newServiceController.addOnTap),
+                            text: StringRes.add,
+                            onTap: newServiceController.addOnTap,
+                          ),
                         ],
                       ),
                     ),

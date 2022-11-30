@@ -14,6 +14,10 @@ FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 class UserService {
   CollectionReference users =
       FirebaseFirestore.instance.collection(FireStoreCollections.users);
+  CollectionReference newOrder =
+      FirebaseFirestore.instance.collection(FireStoreCollections.newOrder);
+  CollectionReference newService =
+      FirebaseFirestore.instance.collection(FireStoreCollections.newService);
 
   /// add user data in firebase
   Future<void> createUser(UserModel userModel) async {
@@ -27,10 +31,7 @@ class UserService {
   /// add new order data in firebase
   Future<void> addNewOrder(NewOrderModel newOrderModel) async {
     try {
-      await users
-          .doc(Global.uid)
-          .collection(FireStoreCollections.newOrder)
-          .add(newOrderModel.toMap());
+      await newOrder.doc().set(newOrderModel.toMap());
     } catch (e) {
       throw e.toString();
     }
@@ -39,10 +40,7 @@ class UserService {
   /// add new service data in firebase
   Future<void> addNewService(NewServiceModel newServiceModel) async {
     try {
-      await users
-          .doc(Global.uid)
-          .collection(FireStoreCollections.newService)
-          .add(newServiceModel.toMap());
+      await newService.doc().set(newServiceModel.toMap());
     } catch (e) {
       throw e.toString();
     }

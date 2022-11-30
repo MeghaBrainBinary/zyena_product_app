@@ -1,9 +1,11 @@
 // ignore: depend_on_referenced_packages
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 // ignore: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:product_app/globals/global.dart';
 import 'package:product_app/model/product_model.dart';
+import 'package:product_app/screen/new_order_screen/new_order_controller.dart';
 import 'package:product_app/screen/order_screen/order_controller.dart';
 import 'package:product_app/screen/order_screen/order_screen.dart';
 import 'package:product_app/screen/order_screen/widgets/column_lists.dart';
@@ -31,8 +33,8 @@ class HomePageController extends GetxController implements GetxService {
     super.onInit();
   }
 
-  void newOrderOnTap() {
-    Get.toNamed(
+  void newOrderOnTap({required BuildContext context}) {
+    Navigator.of(context).pushNamed(
       AppRoutes.newOrderPage,
     );
   }

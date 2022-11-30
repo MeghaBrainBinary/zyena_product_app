@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
-import 'package:product_app/globals/global.dart';
 import 'package:product_app/screen/order_screen/widgets/row_lists.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/color_res.dart';
@@ -154,10 +153,11 @@ class OrderController extends GetxController implements GetxService {
 
     completeServiceList.value = completeServiceData.where(
       (element) {
-        return element['serviceCustomerName'].contains(val.value) ||
-            element['serviceDate'].contains(val.value) ||
-            element['serviceRemark'].contains(val.value) ||
-            element['serviceContactNumber'].contains(val.value);
+        return element['serviceCustomerName']
+                .contains(orderController.val.value) ||
+            element['serviceDate'].contains(orderController.val.value) ||
+            element['serviceRemark'].contains(orderController.val.value) ||
+            element['serviceContactNumber'].contains(orderController.val.value);
       },
     ).toList();
 
@@ -176,9 +176,14 @@ class OrderController extends GetxController implements GetxService {
           ];
   }
 
+  List pendingServiceData = [];
   pendingServiceDataRows({required List list}) {
     int i = 1;
-    pendingServiceList.value = list.where((element) {
+    pendingServiceData = list.where((element) {
+      return element['serviceStatus'].contains('pending');
+    }).toList();
+
+    pendingServiceList.value = pendingServiceData.where((element) {
       return element['serviceCustomerName']
               .contains(orderController.val.value) ||
           element['serviceRemark'].contains(orderController.val.value) ||
@@ -188,7 +193,7 @@ class OrderController extends GetxController implements GetxService {
 
     return (orderController.val.value.isEmpty)
         ? <DataRow>[
-            ...list.map(
+            ...pendingServiceData.map(
               (e) => pendingServiceDataRow(e: e, i: i++),
             ),
           ]
@@ -200,15 +205,11 @@ class OrderController extends GetxController implements GetxService {
   }
 
   Stream stream = FirebaseFirestore.instance
-      .collection(FireStoreCollections.users)
-      .doc(Global.uid)
       .collection(FireStoreCollections.newOrder)
       .orderBy('orderDate')
       .snapshots();
 
   Stream serviceStream = FirebaseFirestore.instance
-      .collection(FireStoreCollections.users)
-      .doc(Global.uid)
       .collection(FireStoreCollections.newService)
       .orderBy('serviceDate')
       .snapshots();

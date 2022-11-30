@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
@@ -96,9 +97,14 @@ class SignupController extends GetxController implements GetxService {
             userModel.uid = user.user!.uid;
             Global.uid = user.user!.uid;
             PrefService.setValue(PrefKeys.uid, user.user!.uid.toString());
+            Global.username = userModel.name!;
+            if (kDebugMode) {
+              print("username ${userModel.name!}");
+            }
             userModel.isAdmin = true;
             userModel.userType = "Admin";
             appState.currentUser = userModel;
+
             try {
               await userService.createUser(userModel);
             } catch (e) {

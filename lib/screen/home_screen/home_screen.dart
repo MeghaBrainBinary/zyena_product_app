@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:product_app/common/sizedbox.dart';
+import 'package:product_app/globals/global.dart';
 import 'package:product_app/screen/home_screen/home_page_controller.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   sizedBoxHeight(height: 0.09),
                                   Text(
-                                    StringRes.agenciesCHENNAI,
+                                    "Hello ${Global.username}",
                                     style: appTextStyle(
                                         color: ColorRes.white,
                                         fontSize: 20,
@@ -95,9 +96,12 @@ class HomeScreen extends StatelessWidget {
                                                           .spaceAround,
                                                   children: [
                                                     containerWithText(
-                                                        onTap:
-                                                            homePageController
-                                                                .newOrderOnTap,
+                                                        onTap: () {
+                                                          homePageController
+                                                              .newOrderOnTap(
+                                                                  context:
+                                                                      context);
+                                                        },
                                                         image:
                                                             AssetRes.newOrder,
                                                         text:

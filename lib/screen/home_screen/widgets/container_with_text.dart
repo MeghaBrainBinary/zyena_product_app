@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/color_res.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 
 Widget containerWithText(

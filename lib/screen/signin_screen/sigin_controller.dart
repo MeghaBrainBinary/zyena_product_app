@@ -9,12 +9,17 @@ import 'package:product_app/common/snackbar.dart';
 import 'package:product_app/globals/global.dart';
 import 'package:product_app/helpers/prefkeys.dart';
 import 'package:product_app/helpers/prefs.dart';
+import 'package:product_app/model/user_model.dart';
+import 'package:product_app/service/user_service.dart';
 import 'package:product_app/utils/approutes.dart';
+import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 
 class SigInController extends GetxController implements GetxService {
   Rx<TextEditingController> emailController = TextEditingController().obs;
   Rx<TextEditingController> passwordController = TextEditingController().obs;
+
+  UserModel userModel = UserModel();
 
   String errorEmail = "";
   String errorPassword = "";
@@ -65,8 +70,22 @@ class SigInController extends GetxController implements GetxService {
             print("uid ${user.user!.uid}");
           }
           Global.uid = user.user!.uid;
+
+          await FirebaseHelper.firebaseHelper.firebaseFirestore
+              .collection(FireStoreCollections.users)
+              .get()
+              .then((value) {
+            for (int i = 0; i < value.docs.length; i++) {
+              if (value.docs[i].id == user.user!.uid) {
+                Global.username = value.docs[i]['name'];
+              }
+            }
+          });
+          // Global.username = userModel.name!;
+
           if (kDebugMode) {
             print("global uid ${Global.uid}");
+            // print("username ${user.user!.displayName!}");
           }
 
           Get.offNamedUntil(AppRoutes.homePage, (route) => false);

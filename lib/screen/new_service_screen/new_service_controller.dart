@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/common/snackbar.dart';
 import 'package:product_app/globals/global.dart';
 import 'package:product_app/model/product_model.dart';
-import 'package:product_app/model/user_model.dart';
 import 'package:product_app/service/user_service.dart';
-import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 
 class NewServiceController extends GetxController implements GetxService {
@@ -111,19 +109,13 @@ class NewServiceController extends GetxController implements GetxService {
       loader.value = true;
       await userService.addNewService(
         NewServiceModel(
+            serviceUid: Global.uid,
             serviceCustomerName: customerName.value,
             serviceDate: dateController.value.text,
             serviceRemark: remarkController.value.text,
             serviceContactNumber: contactNumberController.value.text,
             serviceStatus: "pending"),
       );
-
-      // await userService.addNewService({
-      //   "customerName": customerName.value,
-      //   "date": dateController.value.text,
-      //   "remark": remarkController.value.text,
-      //   "contactNumber": contactNumberController.value.text
-      // });
       loader.value = false;
       customerName.value = StringRes.customerName.toLowerCase();
       dateController.value.clear();

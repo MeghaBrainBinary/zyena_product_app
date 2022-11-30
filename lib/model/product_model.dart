@@ -17,6 +17,7 @@ class NewServiceModel {
   String? serviceRemark;
   String? serviceContactNumber;
   String? serviceStatus;
+  String? serviceUid;
 
   NewServiceModel({
     this.id,
@@ -25,6 +26,7 @@ class NewServiceModel {
     this.serviceRemark,
     this.serviceContactNumber,
     this.serviceStatus,
+    this.serviceUid,
   });
 
   factory NewServiceModel.fromMap(Map<String, dynamic> data) => NewServiceModel(
@@ -34,6 +36,7 @@ class NewServiceModel {
         serviceRemark: data['serviceRemark'],
         serviceContactNumber: data['serviceContactNumber'],
         serviceStatus: data['serviceStatus'],
+        serviceUid: data['serviceUid'],
       );
 
   Map<String, dynamic> toMap() => {
@@ -43,6 +46,7 @@ class NewServiceModel {
         "serviceRemark": serviceRemark,
         "serviceContactNumber": serviceContactNumber,
         "serviceStatus": serviceStatus,
+        "serviceUid": serviceUid,
       };
 }
 
@@ -75,10 +79,6 @@ class NewOrderModel {
     this.contactNumber,
     this.uid,
     this.id,
-    this.serviceCustomerName,
-    this.serviceDate,
-    this.serviceRemark,
-    this.serviceContactNumber,
   });
 
   factory NewOrderModel.fromMap(Map<String, dynamic> data) => NewOrderModel(
@@ -93,10 +93,6 @@ class NewOrderModel {
         uid: data["uid"],
         id: data['id'],
         contactNumber: data['contactNumber'],
-        serviceCustomerName: data['serviceCustomerName'],
-        serviceDate: data['serviceData'],
-        serviceRemark: data['serviceRemark'],
-        serviceContactNumber: data['serviceContactNumber'],
       );
 
   Map<String, dynamic> toMap() => {
@@ -110,10 +106,7 @@ class NewOrderModel {
         "dueDate": dueDate,
         "deliverCancel": deliverCancel,
         "deliveredDate": deliveredDate,
-        "serviceCustomerName": serviceCustomerName,
-        "serviceDate": serviceDate,
-        "serviceRemark": serviceRemark,
-        "serviceContactNumber": serviceContactNumber,
+        "uid": uid,
       };
 }
 

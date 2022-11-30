@@ -30,6 +30,7 @@ class NewOrderScreen extends StatelessWidget {
                 Expanded(
                   flex: 0,
                   child: searchBar(
+                    isSearch: false,
                     title: StringRes.newOrder,
                     controller: newOrderController.searchController,
                   ),
@@ -38,7 +39,7 @@ class NewOrderScreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
                     child: Padding(
-                      padding: const EdgeInsets.only(bottom: 50),
+                      padding: const EdgeInsets.only(bottom: 50, top: 10),
                       child: Stack(
                         alignment: const Alignment(0, 1.06),
                         children: [
@@ -66,12 +67,13 @@ class NewOrderScreen extends StatelessWidget {
                                   Text(
                                     StringRes.customerName,
                                     style: appTextStyle(
-                                        color: ColorRes.skyBlue,
-                                        fontSize: 15,
-                                        weight: FontWeight.w500),
+                                      color: ColorRes.skyBlue,
+                                      fontSize: 15,
+                                      weight: FontWeight.w500,
+                                    ),
                                   ),
                                   sizedBoxHeight(height: 0.02),
-                                  dropDownAndPlusButton(
+                                  dropDownAndCustomerNamePlusButton(
                                     context: context,
                                     items: newOrderController.customerNames,
                                     hintText: newOrderController.customerName,
@@ -87,7 +89,7 @@ class NewOrderScreen extends StatelessWidget {
                                         weight: FontWeight.w500),
                                   ),
                                   sizedBoxHeight(height: 0.02),
-                                  dropDownAndPlusButton(
+                                  dropDownAndProductPlusButton(
                                     context: context,
                                     items: newOrderController.products,
                                     hintText: newOrderController.selectProduct,
@@ -105,7 +107,7 @@ class NewOrderScreen extends StatelessWidget {
                                         title: StringRes.orderDate,
                                         hintText: StringRes.date.toLowerCase(),
                                         controller: newOrderController
-                                            .orderDateController),
+                                            .orderDateController.value),
                                   ),
                                   sizedBoxHeight(height: 0.03),
                                   InkWell(
@@ -118,7 +120,7 @@ class NewOrderScreen extends StatelessWidget {
                                         title: StringRes.expirationDate,
                                         hintText: StringRes.date.toLowerCase(),
                                         controller: newOrderController
-                                            .expirationController),
+                                            .expirationController.value),
                                   ),
                                   sizedBoxHeight(height: 0.03),
                                   titleWithTextField(
@@ -127,7 +129,7 @@ class NewOrderScreen extends StatelessWidget {
                                       hintText:
                                           StringRes.contactNumber.toLowerCase(),
                                       controller: newOrderController
-                                          .contactNumberController),
+                                          .contactNumberController.value),
                                   sizedBoxHeight(height: 0.03),
                                 ],
                               ),

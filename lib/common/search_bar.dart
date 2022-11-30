@@ -15,7 +15,8 @@ OrderController orderController = Get.put(OrderController());
 Widget searchBar(
     {required String title,
     required Rx<TextEditingController> controller,
-    String? hintText}) {
+    String? hintText,
+    bool isSearch = true}) {
   return Stack(
     children: [
       Column(
@@ -63,37 +64,40 @@ Widget searchBar(
             ],
           ),
           sizedBoxHeight(height: 0.005),
-          Container(
-            width: Get.width,
-            height: Get.height * 0.08,
-            margin: const EdgeInsets.all(20),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                      blurRadius: 5,
-                      spreadRadius: 0.5,
-                      offset: const Offset(1, 1),
-                      color: Colors.grey.withOpacity(0.3))
-                ]),
-            child: Obx(
-              () => appTextField(
-                onChanged: (val) async {
-                  orderController.val.value = val;
-                },
-                controller: controller.value,
-                prefixIcon: Transform.scale(
-                    scale: 0.5, child: Image.asset(AssetRes.searchIcon)),
-                hintText: (hintText == null) ? StringRes.searchOrder : hintText,
-                hintStyle: appTextStyle(
-                    color: ColorRes.skyBlue,
-                    fontSize: 13,
-                    weight: FontWeight.w300),
-              ),
-            ),
-          ),
+          (isSearch)
+              ? Container(
+                  width: Get.width,
+                  height: Get.height * 0.08,
+                  margin: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                            blurRadius: 5,
+                            spreadRadius: 0.5,
+                            offset: const Offset(1, 1),
+                            color: Colors.grey.withOpacity(0.3))
+                      ]),
+                  child: Obx(
+                    () => appTextField(
+                      onChanged: (val) async {
+                        orderController.val.value = val;
+                      },
+                      controller: controller.value,
+                      prefixIcon: Transform.scale(
+                          scale: 0.5, child: Image.asset(AssetRes.searchIcon)),
+                      hintText:
+                          (hintText == null) ? StringRes.searchOrder : hintText,
+                      hintStyle: appTextStyle(
+                          color: ColorRes.skyBlue,
+                          fontSize: 13,
+                          weight: FontWeight.w300),
+                    ),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     ],

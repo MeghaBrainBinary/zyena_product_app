@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 Widget titleWithTextField(
     {required String title,
     required String hintText,
-    required Rx<TextEditingController> controller,
+    required TextEditingController controller,
     bool? enabled,
     TextInputType? keyboardType}) {
   return Column(
@@ -32,7 +32,7 @@ Widget titleWithTextField(
           // style: appTextStyle(
           //     color: ColorRes.skyBlue, fontSize: 13, weight: FontWeight.w300),
           enabled: enabled,
-          controller: controller.value,
+          controller: controller,
           hintText: hintText,
           hintStyle: appTextStyle(
               color: ColorRes.skyBlue, fontSize: 13, weight: FontWeight.w300),
