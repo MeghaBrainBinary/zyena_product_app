@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:product_app/common/sizedbox.dart';
-import 'package:product_app/globals/global.dart';
+import 'package:product_app/helpers/prefkeys.dart';
+import 'package:product_app/helpers/prefs.dart';
 import 'package:product_app/screen/home_screen/home_page_controller.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/screen/home_screen/widgets/container_with_text.dart';
+import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
@@ -55,12 +57,58 @@ class HomeScreen extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   sizedBoxHeight(height: 0.09),
-                                  Text(
-                                    "Hello ${Global.username}",
-                                    style: appTextStyle(
-                                        color: ColorRes.white,
-                                        fontSize: 20,
-                                        weight: FontWeight.w500),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Visibility(
+                                          maintainState: true,
+                                          maintainAnimation: true,
+                                          maintainSize: true,
+                                          visible: false,
+                                          child: Transform.scale(
+                                            scale: 0.7,
+                                            child: Image.asset(
+                                              AssetRes.logoutIcon,
+                                              height: 50,
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            // color: ColorRes.black,
+                                            child: Text(
+                                              "Hello ${PrefService.getString("username")}",
+                                              overflow: TextOverflow.ellipsis,
+                                              style: appTextStyle(
+                                                  color: ColorRes.white,
+                                                  fontSize: 20,
+                                                  weight: FontWeight.w500),
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            PrefService.setValue(
+                                                PrefKeys.isLogin, false);
+                                            Get.offNamedUntil(
+                                                AppRoutes.sigInPage,
+                                                (route) => false);
+                                          },
+                                          child: Transform.scale(
+                                            scale: 0.7,
+                                            child: Image.asset(
+                                              AssetRes.logoutIcon,
+                                              height: 50,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   sizedBoxHeight(height: 0.008),
                                   Stack(

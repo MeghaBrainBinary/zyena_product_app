@@ -1,9 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:product_app/common/button.dart';
+import 'package:product_app/common/keyboard_close.dart';
+import 'package:product_app/common/loaders.dart';
 import 'package:product_app/common/sizedbox.dart';
 import 'package:product_app/common/title_with_textfield.dart';
 import 'package:product_app/screen/new_order_screen/new_order_controller.dart';
+import 'package:product_app/service/user_service.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
@@ -12,10 +15,11 @@ import 'package:get/get.dart';
 import 'package:product_app/utils/string_res.dart';
 
 NewOrderController newOrderController = Get.put(NewOrderController());
+UserService userService = UserService();
 
 Widget dropDownAndCustomerNamePlusButton({
   required BuildContext context,
-  required List<String> items,
+  required RxList<String> items,
   required RxString hintText,
   required RxString selectedValue,
 }) {
@@ -93,107 +97,133 @@ Widget dropDownAndCustomerNamePlusButton({
                 actionsPadding: const EdgeInsets.all(0),
                 contentPadding: const EdgeInsets.symmetric(vertical: 0),
                 actionsAlignment: MainAxisAlignment.center,
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
+                content: Stack(
+                  alignment: Alignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        InkWell(
-                          onTap: () {
-                            if (kDebugMode) {
-                              print("tapped........");
-                            }
-                            Navigator.pop(context);
-                          },
-                          child: SizedBox(
-                            height: 50,
-                            width: 50,
-                            // color: Colors.blue,
-                            child: Icon(
-                              Icons.close,
-                              color: ColorRes.white,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Stack(
-                      alignment: const Alignment(0, 1.3),
-                      children: [
-                        Container(
-                          height: Get.height / 3.5,
-                          width: Get.width,
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 0),
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(18),
-                              boxShadow: [
-                                BoxShadow(
-                                    blurRadius: 5,
-                                    spreadRadius: 0.5,
-                                    offset: const Offset(1, 1),
-                                    color: Colors.grey.withOpacity(0.3))
-                              ]),
-                          child: Column(
-                            children: [
-                              sizedBoxHeight(height: 0.03),
-                              Text(
-                                "${StringRes.add} ${StringRes.customerName.toString().split(" ")[0]}",
-                                style: appTextStyle(
-                                    color: ColorRes.skyBlue,
-                                    fontSize: 20,
-                                    weight: FontWeight.w500),
-                              ),
-                              sizedBoxHeight(height: 0.03),
-                              titleWithTextField(
-                                  title: StringRes.customerName
-                                      .toString()
-                                      .split(" ")[0],
-                                  hintText:
-                                      StringRes.customerName.toLowerCase(),
-                                  controller: newOrderController
-                                      .customerNameController.value),
-                              // sizedBoxHeight(height: 0.05),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: Get.height * 0.07,
-                          width: Get.width * 0.5,
-                          child: button(
-                              text: StringRes.add,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            InkWell(
                               onTap: () {
-                                if (newOrderController.customerNameController
-                                    .value.text.isNotEmpty) {
-                                  hintText.value = newOrderController
-                                      .customerNameController.value.text;
-                                  Get.back();
-                                } else {
-                                  Get.back();
+                                if (kDebugMode) {
+                                  print("tapped........");
                                 }
-                                // if (customerNameController.value.text.isNotEmpty) {
-                                //   customerName.value =
-                                //       customerNameController.value.text;
-                                //   Get.back();
-                                // } else {
-                                //   Get.back();
-                                // }
-                              }),
+                                Navigator.pop(context);
+                              },
+                              child: SizedBox(
+                                height: 50,
+                                width: 50,
+                                // color: Colors.blue,
+                                child: Icon(
+                                  Icons.close,
+                                  color: ColorRes.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Stack(
+                          alignment: const Alignment(0, 1.3),
+                          children: [
+                            Container(
+                              height: Get.height / 3.5,
+                              width: Get.width,
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(18),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 5,
+                                        spreadRadius: 0.5,
+                                        offset: const Offset(1, 1),
+                                        color: Colors.grey.withOpacity(0.3))
+                                  ]),
+                              child: Column(
+                                children: [
+                                  sizedBoxHeight(height: 0.03),
+                                  Text(
+                                    "${StringRes.add} ${StringRes.customerName.toString().split(" ")[0]}",
+                                    style: appTextStyle(
+                                        color: ColorRes.skyBlue,
+                                        fontSize: 20,
+                                        weight: FontWeight.w500),
+                                  ),
+                                  sizedBoxHeight(height: 0.03),
+                                  titleWithTextField(
+                                      title: StringRes.customerName
+                                          .toString()
+                                          .split(" ")[0],
+                                      hintText:
+                                          StringRes.customerName.toLowerCase(),
+                                      controller: newOrderController
+                                          .customerNameController.value),
+                                  // sizedBoxHeight(height: 0.05),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: Get.height * 0.07,
+                              width: Get.width * 0.5,
+                              child: button(
+                                  text: StringRes.add,
+                                  onTap: () async {
+                                    closeKeybord(context: context);
+
+                                    if (newOrderController
+                                        .customerNameController
+                                        .value
+                                        .text
+                                        .isNotEmpty) {
+                                      hintText.value = newOrderController
+                                          .customerNameController.value.text;
+                                      newOrderController.customerNames
+                                          .add(hintText.value);
+                                      newOrderController.load.value = true;
+
+                                      await userService.addCustomerNames(
+                                          {"customerName": hintText.value});
+                                      newOrderController.load.value = false;
+
+                                      Get.back();
+                                    } else {
+                                      Get.back();
+                                    }
+                                  }),
+                            ),
+                          ],
                         ),
                       ],
                     ),
+                    Obx(
+                      () => (newOrderController.load.value)
+                          ? const Center(child: SmallLoader())
+                          : const SizedBox(),
+                    )
                   ],
                 ),
                 actions: [
                   GestureDetector(
-                    onTap: () {
+                    onTap: () async {
+                      closeKeybord(context: context);
+
                       if (newOrderController
                           .customerNameController.value.text.isNotEmpty) {
                         hintText.value = newOrderController
                             .customerNameController.value.text;
+                        newOrderController.customerNames.add(hintText.value);
+
+                        newOrderController.load.value = true;
+                        await userService
+                            .addCustomerNames({"customerName": hintText.value});
+                        newOrderController.load.value = false;
+
                         Get.back();
                       } else {
                         Get.back();
@@ -209,8 +239,6 @@ Widget dropDownAndCustomerNamePlusButton({
               );
             }),
           );
-
-          // newOrderController.customerNamePlusOnTap(context: context);
         },
         child: Stack(
           alignment: Alignment.center,
@@ -243,7 +271,7 @@ Widget dropDownAndCustomerNamePlusButton({
 
 Widget dropDownAndProductPlusButton({
   required BuildContext context,
-  required List<String> items,
+  required RxList<String> items,
   required RxString hintText,
   required RxString selectedValue,
 }) {
@@ -390,8 +418,11 @@ Widget dropDownAndProductPlusButton({
                           child: button(
                               text: StringRes.add,
                               onTap: () {
+                                closeKeybord(context: context);
+
                                 hintText.value = newOrderController
                                     .productNameController.value.text;
+                                newOrderController.products.add(hintText.value);
                                 Get.back();
                               }),
                         ),
@@ -402,8 +433,11 @@ Widget dropDownAndProductPlusButton({
                 actions: [
                   GestureDetector(
                     onTap: () {
+                      closeKeybord(context: context);
                       hintText.value =
                           newOrderController.productNameController.value.text;
+                      newOrderController.products.add(hintText.value);
+
                       Get.back();
                     },
                     child: Container(
@@ -448,7 +482,7 @@ Widget dropDownAndProductPlusButton({
 
 Widget dropDown({
   required BuildContext context,
-  required List<String> items,
+  required RxList<String> items,
   required RxString hintText,
   required RxString selectedValue,
 }) {

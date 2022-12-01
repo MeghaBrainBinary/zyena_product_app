@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:product_app/common/snackbar.dart';
 import 'package:product_app/globals/global.dart';
+import 'package:product_app/helpers/prefkeys.dart';
+import 'package:product_app/helpers/prefs.dart';
 import 'package:product_app/model/product_model.dart';
+import 'package:product_app/notification/notification_model.dart';
+import 'package:product_app/notification/notification_service.dart';
 import 'package:product_app/service/user_service.dart';
 import 'package:product_app/utils/string_res.dart';
 
@@ -51,6 +55,8 @@ class NewServiceController extends GetxController implements GetxService {
   void contactNumberValidation() {
     if (contactNumberController.value.text == "") {
       errorContactNumber = "Please enter contact number";
+    } else if (contactNumberController.value.text.length != 10) {
+      errorContactNumber = "Please enter valid contact number";
     } else {
       errorContactNumber = "";
     }
@@ -71,14 +77,7 @@ class NewServiceController extends GetxController implements GetxService {
     return false;
   }
 
-  List<String> customerNames = [
-    "name",
-    "name-1",
-    "name-2",
-    "name-3",
-    "name-4",
-    "name-5",
-  ];
+  RxList<String> customerNames = <String>[].obs;
 
   String date = "";
   String month = "";
@@ -116,6 +115,26 @@ class NewServiceController extends GetxController implements GetxService {
             serviceContactNumber: contactNumberController.value.text,
             serviceStatus: "pending"),
       );
+
+      await FirebaseHelper.firebaseHelper.firebaseFirestore
+          .collection("users")
+          .get()
+          .then((value) {
+        if (value.docs.length.isEqual(0)) {
+        } else {
+          for (int i = 0; i < value.docs.length; i++) {
+            if (value.docs[i].id != PrefService.getString(PrefKeys.uid)) {
+              NotificationService.sendNotification(
+                SendNotificationModel(
+                  fcmTokens: [value.docs[i]['fcmToken']],
+                  title: "Service",
+                  body: "New Service added (${customerName.value})",
+                ),
+              );
+            }
+          }
+        }
+      });
       loader.value = false;
       customerName.value = StringRes.customerName.toLowerCase();
       dateController.value.clear();
@@ -132,5 +151,26 @@ class NewServiceController extends GetxController implements GetxService {
         snakBar(title: StringRes.error, text: errorContactNumber);
       }
     }
+  }
+
+  Set customerNameSet = {};
+  getCustomerNames() async {
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newOrder")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          customerNames.add(value.docs[i]['customerName']);
+        }
+      }
+    });
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    getCustomerNames();
   }
 }

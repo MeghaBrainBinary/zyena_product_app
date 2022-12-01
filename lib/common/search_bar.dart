@@ -22,7 +22,7 @@ Widget searchBar(
       Column(
         children: [
           Container(
-              height: Get.height / 4.5,
+              height: Get.height / 6,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -38,19 +38,25 @@ Widget searchBar(
       ),
       Column(
         children: [
-          sizedBoxHeight(height: 0.1),
+          (isSearch)
+              ? sizedBoxHeight(height: 0.06)
+              : sizedBoxHeight(height: 0.06),
           Row(
             children: [
-              const SizedBox(
-                width: 20,
-              ),
               InkWell(
                 onTap: () {
                   Get.offNamedUntil(AppRoutes.homePage, (route) => false);
                 },
-                child: Image.asset(
-                  AssetRes.homeIcon,
-                  height: 20,
+                child: Container(
+                  margin: const EdgeInsets.only(left: 10),
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 50,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    AssetRes.homeIcon,
+                    height: 20,
+                  ),
                 ),
               ),
               sizedBoxWidth(width: 0.15),
@@ -63,12 +69,13 @@ Widget searchBar(
               ),
             ],
           ),
-          sizedBoxHeight(height: 0.005),
+          // sizedBoxHeight(height: 0.005),
           (isSearch)
               ? Container(
                   width: Get.width,
-                  height: Get.height * 0.08,
-                  margin: const EdgeInsets.all(20),
+                  height: Get.height * 0.06,
+                  margin: const EdgeInsets.only(
+                      left: 20, bottom: 10, right: 20, top: 3),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -98,6 +105,7 @@ Widget searchBar(
                   ),
                 )
               : const SizedBox(),
+          sizedBoxHeight(height: 0.005),
         ],
       ),
     ],

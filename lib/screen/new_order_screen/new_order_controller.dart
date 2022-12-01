@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:product_app/common/snackbar.dart';
 import 'package:product_app/globals/global.dart';
+import 'package:product_app/helpers/prefkeys.dart';
+import 'package:product_app/helpers/prefs.dart';
 import 'package:product_app/model/product_model.dart';
+import 'package:product_app/notification/notification_model.dart';
+import 'package:product_app/notification/notification_service.dart';
 import 'package:product_app/service/user_service.dart';
 import 'package:product_app/utils/string_res.dart';
 
@@ -24,6 +28,7 @@ class NewOrderController extends GetxController implements GetxService {
   String month = "";
   String year = "";
   RxBool loader = false.obs;
+  RxBool load = false.obs;
   UserService userService = UserService();
 
   String errorCustomerName = "";
@@ -67,6 +72,8 @@ class NewOrderController extends GetxController implements GetxService {
   void contactNumberValidation() {
     if (contactNumberController.value.text == "") {
       errorContactNumber = "Please enter contact number";
+    } else if (contactNumberController.value.text.length != 10) {
+      errorContactNumber = "Please enter valid contact number";
     } else {
       errorContactNumber = "";
     }
@@ -96,10 +103,13 @@ class NewOrderController extends GetxController implements GetxService {
     Get.back();
   }
 
+  RxList<String> customerNames = <String>[].obs;
+
   /// add button on tap
   addOnTap() async {
     if (validator()) {
       loader.value = true;
+
       await userService.addNewOrder(
         NewOrderModel(
           id: "${id++}",
@@ -115,11 +125,31 @@ class NewOrderController extends GetxController implements GetxService {
           dueDate: "00/00/0000",
         ),
       );
+      customerNames.add(customerName.value);
+      products.add(selectProduct.value);
+
+      await FirebaseHelper.firebaseHelper.firebaseFirestore
+          .collection("users")
+          .get()
+          .then((value) {
+        if (value.docs.length.isEqual(0)) {
+        } else {
+          for (int i = 0; i < value.docs.length; i++) {
+            if (value.docs[i].id != PrefService.getString(PrefKeys.uid)) {
+              NotificationService.sendNotification(SendNotificationModel(
+                fcmTokens: [value.docs[i]['fcmToken']],
+                title: "Order",
+                body: "New Order Placed (${customerName.value})",
+              ));
+            }
+          }
+        }
+      });
 
       loader.value = false;
       customerName.value = StringRes.customerName.toLowerCase();
       selectProduct.value = StringRes.selectProduct;
-      orderDateController.value.clear();
+
       expirationController.value.clear();
       contactNumberController.value.clear();
     } else {
@@ -127,8 +157,6 @@ class NewOrderController extends GetxController implements GetxService {
         snakBar(title: StringRes.error, text: errorCustomerName);
       } else if (errorProductName != "") {
         snakBar(title: StringRes.error, text: errorProductName);
-      } else if (errorOrderDate != "") {
-        snakBar(title: StringRes.error, text: errorOrderDate);
       } else if (errorExpirationDate != "") {
         snakBar(title: StringRes.error, text: errorExpirationDate);
       } else if (errorContactNumber != "") {
@@ -159,16 +187,17 @@ class NewOrderController extends GetxController implements GetxService {
 
   /// expiration date on tap
   void expirationDateOnTap({required BuildContext context}) async {
-    // if (pickedOrderDate != null) {
     DateTime? pickedDate = await showDatePicker(
       selectableDayPredicate: (day) {
         return true;
       },
       context: context,
-      initialDate: DateTime.now(), //get today's date
-      firstDate: DateTime(
-          1998), //DateTime.now() - not to allow to choose before today.
-      // lastDate: pickedOrderDate!.subtract(const Duration(days: 1))
+      initialDate: (pickedOrderDate != null)
+          ? pickedOrderDate!.add(const Duration(days: 1))
+          : DateTime.now().add(const Duration(days: 1)), //get today's date
+      firstDate: (pickedOrderDate != null)
+          ? pickedOrderDate!.add(const Duration(days: 1))
+          : DateTime.now().add(const Duration(days: 1)),
       lastDate: DateTime(2101),
     );
     if (pickedDate != null) {
@@ -177,26 +206,49 @@ class NewOrderController extends GetxController implements GetxService {
       year = pickedDate.toString().split(" ")[0].toString().split("-")[0];
       expirationController.value.text = "$date/$month/$year";
     }
-    // } else {
-    //   snakBar(title: StringRes.error, text: "Please select order date first");
-    // }
   }
 
-  List<String> products = [
-    "product",
-    "product-1",
-    "product-2",
-    "product-3",
-    "product-4",
-    "product-5",
-  ];
+  RxList<String> products = <String>[].obs;
 
-  List<String> customerNames = [
-    "name",
-    "name-1",
-    "name-2",
-    "name-3",
-    "name-4",
-    "name-5",
-  ];
+  getCustomerNames() async {
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newOrder")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          customerNames.add(value.docs[i]['customerName']);
+        }
+      }
+    });
+  }
+
+  getProducts() async {
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newOrder")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          products.add(value.docs[i]['product']);
+        }
+      }
+    });
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    customerName.value = StringRes.customerName.toLowerCase();
+    selectProduct.value = StringRes.selectProduct;
+    orderDateController.value.text =
+        "${DateTime.now().day.toString()}/${DateTime.now().month.toString()}/${DateTime.now().year.toString()}";
+
+    expirationController.value.clear();
+    contactNumberController.value.clear();
+    getCustomerNames();
+    getProducts();
+  }
 }

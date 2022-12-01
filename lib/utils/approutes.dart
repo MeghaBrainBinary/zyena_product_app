@@ -1,7 +1,7 @@
 class AppRoutes {
   static String signupPage = "/SignupPage";
   static String sigInPage = "/SigInPage";
-  static String homePage = "/homePage";
+  static String homePage = "/HomePage";
   static String newOrderPage = "/newOrderPage";
   static String orderListPage = "/orderListPage";
   static String pendingOrderPage = "/pendingOrderPage";

@@ -5,4 +5,5 @@ class FireStoreCollections {
   static const String chatRoom = 'chatRoom';
   static const String newOrder = 'newOrder';
   static const String newService = 'newService';
+  static const String customerName = 'customerName';
 }

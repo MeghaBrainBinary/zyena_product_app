@@ -18,6 +18,8 @@ class UserService {
       FirebaseFirestore.instance.collection(FireStoreCollections.newOrder);
   CollectionReference newService =
       FirebaseFirestore.instance.collection(FireStoreCollections.newService);
+  CollectionReference customerName =
+      FirebaseFirestore.instance.collection(FireStoreCollections.customerName);
 
   /// add user data in firebase
   Future<void> createUser(UserModel userModel) async {
@@ -41,6 +43,14 @@ class UserService {
   Future<void> addNewService(NewServiceModel newServiceModel) async {
     try {
       await newService.doc().set(newServiceModel.toMap());
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  addCustomerNames(Map<String, dynamic> map) async {
+    try {
+      await customerName.doc().set(map);
     } catch (e) {
       throw e.toString();
     }

@@ -1,16 +1,14 @@
 // ignore: depend_on_referenced_packages
 import 'package:flutter/cupertino.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 // ignore: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:product_app/globals/global.dart';
 import 'package:product_app/model/product_model.dart';
-import 'package:product_app/screen/new_order_screen/new_order_controller.dart';
 import 'package:product_app/screen/order_screen/order_controller.dart';
 import 'package:product_app/screen/order_screen/order_screen.dart';
 import 'package:product_app/screen/order_screen/widgets/column_lists.dart';
 import 'package:product_app/utils/approutes.dart';
-import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 
 OrderController orderController = Get.put(OrderController());
@@ -19,19 +17,6 @@ class HomePageController extends GetxController implements GetxService {
   RxBool isLoad = false.obs;
   RxList<ProductModel> productList = (List<ProductModel>.of([])).obs;
   Rx<ProductModel> product = ProductModel().obs;
-  Stream orderListStream = FirebaseFirestore.instance
-      .collection(FireStoreCollections.users)
-      .doc(Global.uid)
-      .collection(FireStoreCollections.newOrder)
-      .orderBy('id')
-      .snapshots();
-
-  @override
-  void onInit() {
-    // getProduct();
-
-    super.onInit();
-  }
 
   void newOrderOnTap({required BuildContext context}) {
     Navigator.of(context).pushNamed(
@@ -126,6 +111,7 @@ class HomePageController extends GetxController implements GetxService {
         )
         .get()
         .then((value) {
+      // ignore: avoid_function_literals_in_foreach_calls
       value.docs.forEach((element) {
         Map<String, dynamic> map = element.data();
         ProductModel productModel = ProductModel.fromMap(map);
@@ -135,8 +121,8 @@ class HomePageController extends GetxController implements GetxService {
     isLoad.value = false;
   }
 
-  onChange(ProductModel model) {
-    product.value = model;
-    print(model);
-  }
+  // onChange(ProductModel model) {
+  //   product.value = model;
+  //   print(model);
+  // }
 }

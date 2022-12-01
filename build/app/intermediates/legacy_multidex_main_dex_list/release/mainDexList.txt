@@ -14,4 +14,12 @@ com/google/firebase/firestore/k0.class
 com/google/firebase/firestore/r0.class
 com/google/firebase/firestore/v0.class
 kotlin/coroutines/jvm/internal/f.class
-u/k.class
+n2/a$a.class
+n2/d$a.class
+n2/d.class
+o0/k.class
+r3/a.class
+r3/b.class
+r3/c.class
+r3/d.class
+r3/e.class

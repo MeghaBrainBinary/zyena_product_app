@@ -62,9 +62,6 @@ class SigInController extends GetxController implements GetxService {
                 email: emailController.value.text,
                 password: passwordController.value.text);
         if (user.user!.uid.isNotEmpty) {
-          loader.value = false;
-          snakBar(title: StringRes.success, text: "Login Successful");
-
           PrefService.setValue(PrefKeys.uid, user.user!.uid.toString());
           if (kDebugMode) {
             print("uid ${user.user!.uid}");
@@ -74,21 +71,39 @@ class SigInController extends GetxController implements GetxService {
           await FirebaseHelper.firebaseHelper.firebaseFirestore
               .collection(FireStoreCollections.users)
               .get()
-              .then((value) {
+              .then((value) async {
             for (int i = 0; i < value.docs.length; i++) {
               if (value.docs[i].id == user.user!.uid) {
                 Global.username = value.docs[i]['name'];
+
+                await FirebaseHelper.firebaseHelper.firebaseFirestore
+                    .collection(FireStoreCollections.users)
+                    .doc(user.user!.uid)
+                    .update({
+                  "fcmToken":
+                      PrefService.getString(PrefKeys.userToken).toString(),
+                });
+                PrefService.setValue(PrefKeys.uid, user.user!.uid.toString());
+                PrefService.setValue(
+                    "username", value.docs[i]['name'].toString());
               }
             }
           });
-          // Global.username = userModel.name!;
 
           if (kDebugMode) {
             print("global uid ${Global.uid}");
-            // print("username ${user.user!.displayName!}");
           }
+          PrefService.setValue(PrefKeys.isLogin, true);
+          if (kDebugMode) {
+            print(
+                "${PrefService.getBool("isLogin")}===============================");
+          }
+          loader.value = false;
+          snakBar(title: StringRes.success, text: "Login Successful");
 
           Get.offNamedUntil(AppRoutes.homePage, (route) => false);
+          emailController.value.clear();
+          passwordController.value.clear();
         }
       } on FirebaseAuthException catch (e) {
         loader.value = false;
@@ -116,7 +131,9 @@ class SigInController extends GetxController implements GetxService {
   @override
   void onInit() {
     super.onInit();
-
+    emailController.value.clear();
+    passwordController.value.clear();
+    PrefService.setValue(PrefKeys.isSplash, true);
     Timer(const Duration(seconds: 3), () {
       Get.offNamedUntil(AppRoutes.sigInPage, (route) => false);
     });

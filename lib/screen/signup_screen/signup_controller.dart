@@ -91,7 +91,7 @@ class SignupController extends GetxController implements GetxService {
               name: nameController.value.text.trim(),
               email: emailController.value.text.trim(),
               profilePicture: "",
-              fcmToken: "",
+              fcmToken: PrefService.getString(PrefKeys.userToken),
             );
             userModel.profilePicture = "";
             userModel.uid = user.user!.uid;
@@ -100,6 +100,7 @@ class SignupController extends GetxController implements GetxService {
             Global.username = userModel.name!;
             if (kDebugMode) {
               print("username ${userModel.name!}");
+              PrefService.setValue("username", userModel.name!.toString());
             }
             userModel.isAdmin = true;
             userModel.userType = "Admin";

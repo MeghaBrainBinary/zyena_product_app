@@ -45,7 +45,7 @@ class NewOrderScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: Get.width,
-                            height: Get.height / 1.25,
+                            height: Get.height / 1.3,
                             margin: const EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 10),
                             padding: const EdgeInsets.symmetric(

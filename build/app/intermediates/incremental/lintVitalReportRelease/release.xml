@@ -6,7 +6,7 @@
     shrinking="true"
     mergedManifest="C:\Megha38\Nikunj_Sir\zyena_product_app\build\app\intermediates\merged_manifest\release\AndroidManifest.xml"
     manifestMergeReport="C:\Megha38\Nikunj_Sir\zyena_product_app\build\app\outputs\logs\manifest-merger-release-report.txt"
-    proguardFiles="C:\Megha38\Nikunj_Sir\zyena_product_app\build\app\intermediates\default_proguard_files\global\proguard-android.txt-7.1.2;D:\flutter_sdk\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro;proguard-rules.pro"
+    proguardFiles="C:\Megha38\Nikunj_Sir\zyena_product_app\build\app\intermediates\default_proguard_files\global\proguard-android.txt-7.1.2;D:\flutter_sdk\flutter_3.8.8\packages\flutter_tools\gradle\flutter_proguard_rules.pro;proguard-rules.pro"
     partialResultsDir="C:\Megha38\Nikunj_Sir\zyena_product_app\build\app\intermediates\lint_vital_partial_results\release\out">
   <buildFeatures
       namespacing="REQUIRED"/>

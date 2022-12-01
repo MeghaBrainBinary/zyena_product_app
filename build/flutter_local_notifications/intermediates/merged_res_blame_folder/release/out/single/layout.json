@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\custom_dialog.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_media_custom.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_action.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\1377ecc082df76fa18d0a5c00a428a5e\\transformed\\core-1.6.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_big_media_custom.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\flutter_local_notifications\\intermediates\\merged_res\\release\\layout\\notification_template_lines_media.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\2165fe86f612d6397de0240d104c6899\\transformed\\media-1.1.0\\res\\layout\\notification_template_lines_media.xml"
+    }
+]
