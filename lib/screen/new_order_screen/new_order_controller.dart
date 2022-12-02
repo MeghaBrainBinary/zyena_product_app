@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
@@ -15,11 +16,15 @@ class NewOrderController extends GetxController implements GetxService {
   Rx<TextEditingController> searchController = TextEditingController().obs;
   Rx<TextEditingController> customerNameController =
       TextEditingController().obs;
+  Rx<TextEditingController> customerNameUpdateController =
+      TextEditingController().obs;
   Rx<TextEditingController> orderDateController = TextEditingController().obs;
   Rx<TextEditingController> expirationController = TextEditingController().obs;
   Rx<TextEditingController> contactNumberController =
       TextEditingController().obs;
   Rx<TextEditingController> productNameController = TextEditingController().obs;
+  Rx<TextEditingController> productNameUpdateController =
+      TextEditingController().obs;
   RxString selectProduct = StringRes.selectProduct.obs;
   RxString customerName = StringRes.customerName.toLowerCase().obs;
 
@@ -96,7 +101,7 @@ class NewOrderController extends GetxController implements GetxService {
     return false;
   }
 
-  int id = 1;
+  int id = PrefService.getInt("id");
 
   void addCustomerNameOnTap() {
     customerName.value = customerNameController.value.text;
@@ -107,12 +112,17 @@ class NewOrderController extends GetxController implements GetxService {
 
   /// add button on tap
   addOnTap() async {
+    if (kDebugMode) {
+      print("${PrefService.getInt("id")}");
+    }
+    PrefService.setValue("id", id++);
+
     if (validator()) {
       loader.value = true;
 
       await userService.addNewOrder(
         NewOrderModel(
-          id: "${id++}",
+          id: "${PrefService.getInt("id")}",
           uid: Global.uid,
           customerName: customerName.value,
           product: selectProduct.value,
@@ -125,8 +135,8 @@ class NewOrderController extends GetxController implements GetxService {
           dueDate: "00/00/0000",
         ),
       );
-      customerNames.add(customerName.value);
-      products.add(selectProduct.value);
+      // customerNames.add(customerName.value);
+      // products.add(selectProduct.value);
 
       await FirebaseHelper.firebaseHelper.firebaseFirestore
           .collection("users")
@@ -149,7 +159,10 @@ class NewOrderController extends GetxController implements GetxService {
       loader.value = false;
       customerName.value = StringRes.customerName.toLowerCase();
       selectProduct.value = StringRes.selectProduct;
-
+      orderDateController.value.text = (DateTime.now().day < 10)
+          ? "0${DateTime.now().day.toString()}/${DateTime.now().month.toString()}/${DateTime.now().year.toString()}"
+          : "${DateTime.now().day.toString()}/${DateTime.now().month.toString()}/${DateTime.now().year.toString()}";
+      pickedOrderDate = null;
       expirationController.value.clear();
       contactNumberController.value.clear();
     } else {
@@ -243,8 +256,9 @@ class NewOrderController extends GetxController implements GetxService {
     super.onInit();
     customerName.value = StringRes.customerName.toLowerCase();
     selectProduct.value = StringRes.selectProduct;
-    orderDateController.value.text =
-        "${DateTime.now().day.toString()}/${DateTime.now().month.toString()}/${DateTime.now().year.toString()}";
+    orderDateController.value.text = (DateTime.now().day < 10)
+        ? "0${DateTime.now().day.toString()}/${DateTime.now().month.toString()}/${DateTime.now().year.toString()}"
+        : "${DateTime.now().day.toString()}/${DateTime.now().month.toString()}/${DateTime.now().year.toString()}";
 
     expirationController.value.clear();
     contactNumberController.value.clear();

@@ -59,6 +59,30 @@ class OrderController extends GetxController implements GetxService {
           ];
   }
 
+  customersDataRows({required List list, required BuildContext context}) {
+    int i = 1;
+
+    return (orderController.val.value.isEmpty)
+        ? <DataRow>[
+            ...list.map(
+              (e) => customersDataRow(e: e, i: i++, context: context),
+            ),
+          ]
+        : <DataRow>[];
+  }
+
+  productsDataRows({required List list, required BuildContext context}) {
+    int i = 1;
+
+    return (orderController.val.value.isEmpty)
+        ? <DataRow>[
+            ...list.map(
+              (e) => productsDataRow(e: e, i: i++, context: context),
+            ),
+          ]
+        : <DataRow>[];
+  }
+
   List pendingData = [];
   pendingOrderDataRows({required List list}) {
     int i = 1;

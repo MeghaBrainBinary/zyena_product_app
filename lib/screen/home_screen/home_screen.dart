@@ -6,6 +6,7 @@ import 'package:product_app/screen/home_screen/home_page_controller.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/screen/home_screen/widgets/container_with_text.dart';
+import 'package:product_app/screen/home_screen/widgets/home_background.dart';
 import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
@@ -31,24 +32,7 @@ class HomeScreen extends StatelessWidget {
                     height: Get.height,
                     child: Stack(
                       children: [
-                        Column(
-                          children: [
-                            Container(
-                                height: Get.height / 3,
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                      ColorRes.skyBlue,
-                                      const Color(0xFF8C8CB6),
-                                    ]))),
-                            Container(
-                                height: Get.height / 2,
-                                decoration:
-                                    const BoxDecoration(color: Colors.white))
-                          ],
-                        ),
+                        homeBackGround(),
                         Align(
                           alignment: Alignment.center,
                           child: Stack(
@@ -238,6 +222,31 @@ class HomeScreen extends StatelessWidget {
                                                             .completeService,
                                                         text: StringRes
                                                             .completeService),
+                                                  ],
+                                                ),
+                                                Container(
+                                                  height: Get.height * 0.001,
+                                                  color: ColorRes.skyBlue,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceAround,
+                                                  children: [
+                                                    containerWithText(
+                                                        onTap:
+                                                            homePageController
+                                                                .customersOnTap,
+                                                        image: "",
+                                                        text: StringRes
+                                                            .customers),
+                                                    containerWithText(
+                                                        onTap:
+                                                            homePageController
+                                                                .productsOnTap,
+                                                        image: "",
+                                                        text:
+                                                            StringRes.products),
                                                   ],
                                                 ),
                                               ],

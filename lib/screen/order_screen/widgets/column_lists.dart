@@ -84,30 +84,50 @@ List<DataColumn> orderListColumnList = [
 
 List<DataColumn> pendingOrderColumnList = [
   DataColumn(
-    label: Text(
-      StringRes.srNo,
-      style: orderController.columnTextStyle,
+    label: Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          StringRes.srNo,
+          style: orderController.columnTextStyle,
+        ),
+      ),
     ),
   ),
   DataColumn(label: verticalDivider),
   DataColumn(
-    label: Text(
-      StringRes.customerName,
-      style: orderController.columnTextStyle,
+    label: Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          StringRes.customerName,
+          style: orderController.columnTextStyle,
+        ),
+      ),
     ),
   ),
   DataColumn(label: verticalDivider),
   DataColumn(
-    label: Text(
-      StringRes.productName,
-      style: orderController.columnTextStyle,
+    label: Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          StringRes.productName,
+          style: orderController.columnTextStyle,
+        ),
+      ),
     ),
   ),
   DataColumn(label: verticalDivider),
   DataColumn(
-    label: Text(
-      StringRes.orderDate,
-      style: orderController.columnTextStyle,
+    label: Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          StringRes.orderDate,
+          style: orderController.columnTextStyle,
+        ),
+      ),
     ),
   ),
   DataColumn(label: verticalDivider),
@@ -124,16 +144,26 @@ List<DataColumn> pendingOrderColumnList = [
   ),
   DataColumn(label: verticalDivider),
   DataColumn(
-    label: Text(
-      StringRes.deliverCancel,
-      style: orderController.columnTextStyle,
+    label: Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          StringRes.deliverCancel,
+          style: orderController.columnTextStyle,
+        ),
+      ),
     ),
   ),
   DataColumn(label: verticalDivider),
   DataColumn(
-    label: Text(
-      StringRes.contactNumberSmall,
-      style: orderController.columnTextStyle,
+    label: Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          StringRes.contactNumberSmall,
+          style: orderController.columnTextStyle,
+        ),
+      ),
     ),
   ),
 ];
@@ -205,6 +235,98 @@ List<DataColumn> deliveredReturnColumnList = [
         alignment: Alignment.center,
         child: Text(
           StringRes.contactNumberSmall,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+];
+
+List<DataColumn> customersColumnList = [
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.srNo,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+  DataColumn(label: verticalDivider),
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.customers,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+  DataColumn(label: verticalDivider),
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.edit,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+  DataColumn(label: verticalDivider),
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.delete,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+];
+
+List<DataColumn> productColumnList = [
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.srNo,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+  DataColumn(label: verticalDivider),
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.products,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+  DataColumn(label: verticalDivider),
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.edit,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
+  DataColumn(label: verticalDivider),
+  DataColumn(
+    label: Expanded(
+      child: Center(
+        child: Text(
+          StringRes.delete,
           style: orderController.columnTextStyle,
         ),
       ),

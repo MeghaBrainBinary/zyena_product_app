@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:product_app/common/loaders.dart';
 import 'package:product_app/common/search_bar.dart';
+import 'package:product_app/common/sizedbox.dart';
+import 'package:product_app/screen/new_order_screen/widget/dropdown_button.dart';
 import 'package:product_app/screen/order_screen/order_controller.dart';
 import 'package:product_app/common/data_table.dart';
 import 'package:product_app/utils/string_res.dart';
@@ -41,11 +43,19 @@ class OrderScreen extends StatelessWidget {
               Expanded(
                 flex: 0,
                 child: searchBar(
+                  isSearch: (title == StringRes.customers ||
+                          title == StringRes.products)
+                      ? false
+                      : true,
                   hintText: hintText,
                   title: title!,
                   controller: controller!.obs,
                 ),
               ),
+              (title == StringRes.customers || title == StringRes.products)
+                  ? sizedBoxHeight(height: 0.03)
+                  : const SizedBox(),
+              sizedBoxHeight(height: 0.02),
               Expanded(
                 child: StreamBuilder(
                   stream: stream,
@@ -60,26 +70,41 @@ class OrderScreen extends StatelessWidget {
                         () => dataTable(
                           context: context,
                           columns: columnList!,
-                          rows: (title == StringRes.pendingService)
-                              ? orderListController.pendingServiceDataRows(
-                                  list: snapshot.data.docs)
-                              : (title == StringRes.completeService)
-                                  ? orderListController.completeServiceDataRows(
-                                      list: snapshot.data.docs)
-                                  : (title == StringRes.orderList)
-                                      ? orderListController.orderListDataRows(
-                                          list: snapshot.data.docs)
-                                      : (title == StringRes.pendingOrder)
+                          rows: (title == StringRes.products)
+                              ? orderListController.productsDataRows(
+                                  list: snapshot.data.docs, context: context)
+                              : (title == StringRes.customers)
+                                  ? orderListController.customersDataRows(
+                                      list: snapshot.data.docs,
+                                      context: context)
+                                  : (title == StringRes.pendingService)
+                                      ? orderListController
+                                          .pendingServiceDataRows(
+                                              list: snapshot.data.docs)
+                                      : (title == StringRes.completeService)
                                           ? orderListController
-                                              .pendingOrderDataRows(
+                                              .completeServiceDataRows(
                                                   list: snapshot.data.docs)
-                                          : (title == StringRes.delivered)
+                                          : (title == StringRes.orderList)
                                               ? orderListController
-                                                  .deliveredDataRows(
+                                                  .orderListDataRows(
                                                       list: snapshot.data.docs)
-                                              : orderListController
-                                                  .retuenOrderDataRows(
-                                                      list: snapshot.data.docs),
+                                              : (title ==
+                                                      StringRes.pendingOrder)
+                                                  ? orderListController
+                                                      .pendingOrderDataRows(
+                                                          list: snapshot
+                                                              .data.docs)
+                                                  : (title ==
+                                                          StringRes.delivered)
+                                                      ? orderListController
+                                                          .deliveredDataRows(
+                                                              list: snapshot
+                                                                  .data.docs)
+                                                      : orderListController
+                                                          .retuenOrderDataRows(
+                                                              list: snapshot
+                                                                  .data.docs),
                         ),
                       );
                     }

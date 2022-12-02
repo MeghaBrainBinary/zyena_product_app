@@ -14,6 +14,7 @@ import 'package:product_app/screen/signin_screen/signin_screen.dart';
 import 'package:product_app/screen/signup_screen/signup_screen.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
+import 'package:product_app/screen/update_order_screen/update_order_screen.dart';
 import 'package:product_app/utils/approutes.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -49,6 +50,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: AppRoutes.sigInPage, page: () => SignInScreen()),
         GetPage(name: AppRoutes.homePage, page: () => HomeScreen()),
         GetPage(name: AppRoutes.newOrderPage, page: () => NewOrderScreen()),
+        GetPage(
+            name: AppRoutes.updateOrderPage, page: () => UpdateOrderScreen()),
         GetPage(name: AppRoutes.orderListPage, page: () => OrderScreen()),
         GetPage(name: AppRoutes.newServicePage, page: () => NewServiceScreen()),
       ],

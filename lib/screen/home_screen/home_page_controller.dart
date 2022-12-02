@@ -89,6 +89,30 @@ class HomePageController extends GetxController implements GetxService {
     );
   }
 
+  ///customersOnTap
+  void customersOnTap() {
+    Get.to(
+      OrderScreen(
+        controller: orderController.pendingServiceController.value,
+        columnList: customersColumnList,
+        title: StringRes.customers,
+        stream: orderController.stream,
+      ),
+    );
+  }
+
+  /// productsOnTap
+  void productsOnTap() {
+    Get.to(
+      OrderScreen(
+        controller: orderController.pendingServiceController.value,
+        columnList: productColumnList,
+        title: StringRes.products,
+        stream: orderController.stream,
+      ),
+    );
+  }
+
   /// complete service onTap
   void completeServiceOnTap() {
     Get.to(

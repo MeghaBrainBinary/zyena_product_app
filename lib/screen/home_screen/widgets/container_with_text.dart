@@ -9,19 +9,24 @@ Widget containerWithText(
   return InkWell(
     onTap: onTap,
     child: Container(
+      // color: ColorRes.black,
       alignment: Alignment.center,
       height: Get.height * 0.1,
       width: Get.width * 0.4,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: (image != "")
+            ? MainAxisAlignment.spaceAround
+            : MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 30,
-            width: 30,
-            child: Image.asset(
-              image,
-            ),
-          ),
+          (image != "")
+              ? SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: Image.asset(
+                    image,
+                  ),
+                )
+              : const SizedBox(),
           Text(
             text,
             style: appTextStyle(

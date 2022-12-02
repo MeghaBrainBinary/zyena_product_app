@@ -71,4 +71,17 @@ class StringRes {
 
   static String signupSuccessful = "Signup Successful";
   static String admin = "Admin";
+
+  static String update = "Update";
+  static String edit = "Edit";
+  static String delete = "Delete";
+
+  static String editCustomer = "Edit Customer";
+  static String deleteCustomer = "Delete Customer";
+  static String editProduct = "Edit Product";
+  static String deleteProduct = "Delete Product";
+  static String updateOrder = "Update Order";
+  static String updateService = "Update Service";
+  static String customers = "Customers";
+  static String products = "Products";
 }

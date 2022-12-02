@@ -59,13 +59,34 @@ Widget searchBar(
                   ),
                 ),
               ),
-              sizedBoxWidth(width: 0.15),
-              Text(
-                title,
-                style: appTextStyle(
-                    color: ColorRes.white,
-                    fontSize: 24,
-                    weight: FontWeight.w500),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    title,
+                    style: appTextStyle(
+                        color: ColorRes.white,
+                        fontSize: 24,
+                        weight: FontWeight.w500),
+                  ),
+                ),
+              ),
+              Visibility(
+                maintainSize: true,
+                visible: false,
+                maintainAnimation: true,
+                maintainState: true,
+                child: Container(
+                  margin: const EdgeInsets.only(left: 10),
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 50,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    AssetRes.homeIcon,
+                    height: 20,
+                  ),
+                ),
               ),
             ],
           ),
