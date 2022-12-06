@@ -1,12 +1,16 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
 import 'package:product_app/screen/order_screen/widgets/row_lists.dart';
+import 'package:product_app/service/user_service.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/color_res.dart';
 // ignore: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:product_app/utils/firestore_collections.dart';
+import 'package:product_app/utils/string_res.dart';
 
 OrderController orderController = Get.put(OrderController());
 
@@ -23,8 +27,18 @@ class OrderController extends GetxController implements GetxService {
       TextEditingController().obs;
   Rx<TextEditingController> completeServiceController =
       TextEditingController().obs;
+  RxString customerName = StringRes.customerName.toLowerCase().obs;
+  RxString productName = StringRes.productName.toLowerCase().obs;
+  RxList<String> customerNames = <String>[].obs;
+  // RxList<String> serviceCustomerNames = <String>[].obs;
+  RxList<String> productNames = <String>[].obs;
 
   RxString val = "".obs;
+  RxString cusName = "".obs;
+  RxString proName = "".obs;
+  RxList proNameId = [].obs;
+  RxList cusNameId = [].obs;
+  RxString customerNameFilterval = "".obs;
   Widget verticalDivider = VerticalDivider(
     color: ColorRes.color9A9ABF,
     thickness: 1,
@@ -35,15 +49,21 @@ class OrderController extends GetxController implements GetxService {
   RxList returnSearchList = [].obs;
   RxList pendingServiceList = [].obs;
   RxList completeServiceList = [].obs;
+  RxBool isService = false.obs;
+  Rx<Stream> stream = const Stream.empty().obs;
 
   orderListDataRows({required List list}) {
     int i = 1;
     orderController.orderListData.value = list.where((element) {
       return element['customerName'].contains(orderController.val.value) ||
+          //  element['customerName'].contains(orderController.cusName.value) ||
+
           element['product'].contains(orderController.val.value) ||
+          element['product'].contains(orderController.proName.value) ||
           element['orderDate'].contains(orderController.val.value) ||
           element['expirationDate'].contains(orderController.val.value) ||
-          element['contactNumber'].contains(orderController.val.value);
+          element['contactNumber'].contains(orderController.val.value) ||
+          element['customerName'].contains(orderController.customerName.value);
     }).toList();
 
     return (orderController.val.value.isEmpty)
@@ -52,11 +72,17 @@ class OrderController extends GetxController implements GetxService {
               (e) => orderListDataRow(e: e, i: i++),
             ),
           ]
-        : <DataRow>[
-            ...orderController.orderListData.map(
-              (e) => orderListDataRow(e: e, i: i++),
-            ),
-          ];
+        : (orderController.customerName.value.isNotEmpty)
+            ? <DataRow>[
+                ...orderController.orderListData.map(
+                  (e) => orderListDataRow(e: e, i: i++),
+                ),
+              ]
+            : <DataRow>[
+                ...orderController.orderListData.map(
+                  (e) => orderListDataRow(e: e, i: i++),
+                ),
+              ];
   }
 
   customersDataRows({required List list, required BuildContext context}) {
@@ -69,6 +95,199 @@ class OrderController extends GetxController implements GetxService {
             ),
           ]
         : <DataRow>[];
+  }
+
+  RxList orderCustomerNames = [].obs;
+  getCustomerNames() async {
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newOrder")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          orderCustomerNames.add(value.docs[i]['customerName']);
+          customerNames.value =
+              LinkedHashSet<String>.from(orderCustomerNames).toList();
+        }
+      }
+    });
+  }
+
+  RxList pendingOrderCustomerNames = [].obs;
+  getPendingCustomerNames() async {
+    customerNames.value = [];
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newOrder")
+        .where("status", isEqualTo: "pending")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          if (value.docs[i]['status'] == "pending") {
+            pendingOrderCustomerNames.add(value.docs[i]['customerName']);
+            customerNames.value =
+                LinkedHashSet<String>.from(pendingOrderCustomerNames).toList();
+          } else {
+            customerNames.value = [];
+          }
+        }
+      }
+    });
+  }
+
+  RxList deliveredOrderCustomerNames = [].obs;
+  getDeliveredCustomerNames() async {
+    customerNames.value = [];
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newOrder")
+        .where("status", isEqualTo: "delivered")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          if (value.docs[i]['status'] == "delivered") {
+            deliveredOrderCustomerNames.add(value.docs[i]['customerName']);
+            customerNames.value =
+                LinkedHashSet<String>.from(deliveredOrderCustomerNames)
+                    .toList();
+          } else {
+            customerNames.value = [];
+          }
+        }
+      }
+    });
+  }
+
+  RxList returnOrderCustomerNames = [].obs;
+  getReturnCustomerNames() async {
+    customerNames.value = [];
+
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newOrder")
+        .where("status", isEqualTo: "return")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          if (value.docs[i]['status'] == "return") {
+            returnOrderCustomerNames.add(value.docs[i]['customerName']);
+            customerNames.value =
+                LinkedHashSet<String>.from(returnOrderCustomerNames).toList();
+          } else {
+            customerNames.value = [];
+          }
+        }
+      }
+    });
+  }
+
+  RxList orderProductName = [].obs;
+
+  getProductNames() async {
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection(FireStoreCollections.newOrder)
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          orderProductName.add(value.docs[i]['product']);
+          productNames.value =
+              LinkedHashSet<String>.from(orderProductName).toList();
+        }
+      }
+    });
+  }
+
+  RxList pendingOrderProductName = [].obs;
+
+  getPendingProductNames() async {
+    productNames.value = [];
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection(FireStoreCollections.newOrder)
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          if (value.docs[i]['status'] == "pending") {
+            pendingOrderProductName.add(value.docs[i]['product']);
+            productNames.value =
+                LinkedHashSet<String>.from(pendingOrderProductName).toList();
+          } else {
+            productNames.value = [];
+          }
+        }
+      }
+    });
+  }
+
+  RxList deliveredOrderProductName = [].obs;
+
+  getDeliveredProductNames() async {
+    productNames.value = [];
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection(FireStoreCollections.newOrder)
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          if (value.docs[i]['status'] == "delivered") {
+            deliveredOrderProductName.add(value.docs[i]['product']);
+            productNames.value =
+                LinkedHashSet<String>.from(deliveredOrderProductName).toList();
+          } else {
+            productNames.value = [];
+          }
+        }
+      }
+    });
+  }
+
+  RxList returnOrderProductName = [].obs;
+
+  getReturnProductNames() async {
+    productNames.value = [];
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection(FireStoreCollections.newOrder)
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          if (value.docs[i]['status'] == "return") {
+            returnOrderProductName.add(value.docs[i]['product']);
+            productNames.value =
+                LinkedHashSet<String>.from(returnOrderProductName).toList();
+          } else {
+            productNames.value = [];
+          }
+        }
+      }
+    });
+  }
+
+  Set serviceCustomerName = {};
+  RxList serviceCustomerNames = [].obs;
+  getServiceCustomerNames() async {
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newService")
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          serviceCustomerNames.add(value.docs[i]['serviceCustomerName']);
+          customerNames.value =
+              LinkedHashSet<String>.from(serviceCustomerNames).toList();
+        }
+      }
+    });
   }
 
   productsDataRows({required List list, required BuildContext context}) {
@@ -215,6 +434,10 @@ class OrderController extends GetxController implements GetxService {
           element['serviceContactNumber'].contains(orderController.val.value);
     }).toList();
 
+    list.where(
+      (element) => element['serviceCustomer'],
+    );
+
     return (orderController.val.value.isEmpty)
         ? <DataRow>[
             ...pendingServiceData.map(
@@ -228,19 +451,32 @@ class OrderController extends GetxController implements GetxService {
           ];
   }
 
-  Stream stream = FirebaseFirestore.instance
-      .collection(FireStoreCollections.newOrder)
-      .orderBy('orderDate')
-      .snapshots();
+  // stream = FirebaseFirestore.instance
+  //     .collection(FireStoreCollections.newOrder)
+  //     .orderBy('orderDate')
+  //     .snapshots()
+  //     .obs;
 
-  Stream serviceStream = FirebaseFirestore.instance
+  Rx<Stream> serviceStream = FirebaseFirestore.instance
       .collection(FireStoreCollections.newService)
       .orderBy('serviceDate')
-      .snapshots();
+      .snapshots()
+      .obs;
 
   TextStyle columnTextStyle = appTextStyle(
       color: ColorRes.white, fontSize: 14, weight: FontWeight.w500);
 
   TextStyle rowTextStyle = appTextStyle(
       color: ColorRes.skyBlue, fontSize: 14, weight: FontWeight.w300);
+
+  @override
+  void onInit() {
+    super.onInit();
+    stream.value = FirebaseFirestore.instance
+        .collection(FireStoreCollections.newOrder)
+        .orderBy('orderDate')
+        .snapshots();
+
+    // getCustomerNames();
+  }
 }

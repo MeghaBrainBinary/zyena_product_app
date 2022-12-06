@@ -6,9 +6,11 @@ import 'package:product_app/utils/approutes.dart';
 import 'package:product_app/utils/appstyle.dart';
 import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
+import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 OrderController orderController = Get.put(OrderController());
 
@@ -45,6 +47,11 @@ Widget searchBar(
             children: [
               InkWell(
                 onTap: () {
+                  orderController.isService.value = false;
+                  orderController.customerName.value =
+                      StringRes.customerName.toLowerCase();
+                  orderController.productName.value =
+                      StringRes.productName.toLowerCase();
                   Get.offNamedUntil(AppRoutes.homePage, (route) => false);
                 },
                 child: Container(
@@ -99,18 +106,26 @@ Widget searchBar(
                       left: 20, bottom: 10, right: 20, top: 3),
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                            blurRadius: 5,
-                            spreadRadius: 0.5,
-                            offset: const Offset(1, 1),
-                            color: Colors.grey.withOpacity(0.3))
-                      ]),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 5,
+                          spreadRadius: 0.5,
+                          offset: const Offset(1, 1),
+                          color: Colors.grey.withOpacity(0.3)),
+                    ],
+                  ),
                   child: Obx(
                     () => appTextField(
                       onChanged: (val) async {
+                        // if (val.isNotEmpty) {
+                        //   orderController.stream.value = FirebaseFirestore
+                        //       .instance
+                        //       .collection(FireStoreCollections.newOrder)
+                        //       .orderBy('orderDate')
+                        //       .snapshots();
+                        // }
                         orderController.val.value = val;
                       },
                       controller: controller.value,

@@ -123,7 +123,7 @@ class NewOrderController extends GetxController implements GetxService {
       await userService.addNewOrder(
         NewOrderModel(
           id: "${PrefService.getInt("id")}",
-          uid: Global.uid,
+          uid: PrefService.getString(PrefKeys.uid),
           customerName: customerName.value,
           product: selectProduct.value,
           orderDate: orderDateController.value.text,
@@ -133,6 +133,7 @@ class NewOrderController extends GetxController implements GetxService {
           deliverCancel: "Deliver",
           deliveredDate: "00/00/0000",
           dueDate: "00/00/0000",
+          serviceStatus: "pending",
         ),
       );
       // customerNames.add(customerName.value);

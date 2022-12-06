@@ -55,63 +55,114 @@ class OrderScreen extends StatelessWidget {
               (title == StringRes.customers || title == StringRes.products)
                   ? sizedBoxHeight(height: 0.03)
                   : const SizedBox(),
+              // sizedBoxHeight(height: 0.02),
+              ((title == StringRes.products) || (title == StringRes.customers))
+                  ? const SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: ((title == StringRes.pendingService) ||
+                                    (title == StringRes.completeService))
+                                ? serviceDropDown(
+                                    context: context,
+                                    items: orderListController.customerNames,
+                                    hintText: orderListController.customerName,
+                                    selectedValue:
+                                        orderListController.customerName,
+                                  )
+                                : orderDropDown(
+                                    isProduct: false.obs,
+                                    context: context,
+                                    items: orderListController.customerNames,
+                                    hintText: orderListController.customerName,
+                                    selectedValue:
+                                        orderListController.customerName,
+                                  ),
+                          ),
+                          sizedBoxWidth(width: 0.03),
+                          ((title == StringRes.pendingService) ||
+                                  (title == StringRes.completeService))
+                              ? Expanded(
+                                  child: Container(),
+                                )
+                              : Expanded(
+                                  child: orderDropDown(
+                                    isProduct: true.obs,
+                                    context: context,
+                                    items: orderListController.productNames,
+                                    hintText: orderListController.productName,
+                                    selectedValue:
+                                        orderListController.productName,
+                                  ),
+                                ),
+                        ],
+                      ),
+                    ),
               sizedBoxHeight(height: 0.02),
               Expanded(
-                child: StreamBuilder(
-                  stream: stream,
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasError) {
-                      return Center(
-                        child: Text("ERROR : ${snapshot.error}"),
+                child: Obx(
+                  () => StreamBuilder(
+                    stream: ((title == StringRes.pendingService) ||
+                            (title == StringRes.completeService))
+                        ? orderListController.serviceStream.value
+                        : orderListController.stream.value,
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text("ERROR : ${snapshot.error}"),
+                        );
+                      } else if (snapshot.hasData) {
+                        items.add(snapshot.data.docs);
+                        return Obx(
+                          () => dataTable(
+                            context: context,
+                            columns: columnList!,
+                            rows: (title == StringRes.products)
+                                ? orderListController.productsDataRows(
+                                    list: snapshot.data.docs, context: context)
+                                : (title == StringRes.customers)
+                                    ? orderListController.customersDataRows(
+                                        list: snapshot.data.docs,
+                                        context: context)
+                                    : (title == StringRes.pendingService)
+                                        ? orderListController
+                                            .pendingServiceDataRows(
+                                                list: snapshot.data.docs)
+                                        : (title == StringRes.completeService)
+                                            ? orderListController
+                                                .completeServiceDataRows(
+                                                    list: snapshot.data.docs)
+                                            : (title == StringRes.orderList)
+                                                ? orderListController
+                                                    .orderListDataRows(
+                                                        list:
+                                                            snapshot.data.docs)
+                                                : (title ==
+                                                        StringRes.pendingOrder)
+                                                    ? orderListController
+                                                        .pendingOrderDataRows(
+                                                            list: snapshot
+                                                                .data.docs)
+                                                    : (title ==
+                                                            StringRes.delivered)
+                                                        ? orderListController
+                                                            .deliveredDataRows(
+                                                                list: snapshot
+                                                                    .data.docs)
+                                                        : orderListController
+                                                            .retuenOrderDataRows(
+                                                                list: snapshot
+                                                                    .data.docs),
+                          ),
+                        );
+                      }
+                      return const Center(
+                        child: SmallLoader(),
                       );
-                    } else if (snapshot.hasData) {
-                      items.add(snapshot.data.docs);
-                      return Obx(
-                        () => dataTable(
-                          context: context,
-                          columns: columnList!,
-                          rows: (title == StringRes.products)
-                              ? orderListController.productsDataRows(
-                                  list: snapshot.data.docs, context: context)
-                              : (title == StringRes.customers)
-                                  ? orderListController.customersDataRows(
-                                      list: snapshot.data.docs,
-                                      context: context)
-                                  : (title == StringRes.pendingService)
-                                      ? orderListController
-                                          .pendingServiceDataRows(
-                                              list: snapshot.data.docs)
-                                      : (title == StringRes.completeService)
-                                          ? orderListController
-                                              .completeServiceDataRows(
-                                                  list: snapshot.data.docs)
-                                          : (title == StringRes.orderList)
-                                              ? orderListController
-                                                  .orderListDataRows(
-                                                      list: snapshot.data.docs)
-                                              : (title ==
-                                                      StringRes.pendingOrder)
-                                                  ? orderListController
-                                                      .pendingOrderDataRows(
-                                                          list: snapshot
-                                                              .data.docs)
-                                                  : (title ==
-                                                          StringRes.delivered)
-                                                      ? orderListController
-                                                          .deliveredDataRows(
-                                                              list: snapshot
-                                                                  .data.docs)
-                                                      : orderListController
-                                                          .retuenOrderDataRows(
-                                                              list: snapshot
-                                                                  .data.docs),
-                        ),
-                      );
-                    }
-                    return const Center(
-                      child: SmallLoader(),
-                    );
-                  },
+                    },
+                  ),
                 ),
               ),
             ],

@@ -1,8 +1,11 @@
+import 'dart:collection';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:product_app/common/button.dart';
 import 'package:product_app/common/keyboard_close.dart';
 import 'package:product_app/common/loaders.dart';
+import 'package:product_app/common/search_bar.dart';
 import 'package:product_app/common/sizedbox.dart';
 import 'package:product_app/common/title_with_textfield.dart';
 import 'package:product_app/screen/new_order_screen/new_order_controller.dart';
@@ -12,6 +15,9 @@ import 'package:product_app/utils/asset_res.dart';
 import 'package:product_app/utils/color_res.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+import 'package:product_app/utils/firestore_collections.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:product_app/utils/string_res.dart';
 
 NewOrderController newOrderController = Get.put(NewOrderController());
@@ -535,6 +541,257 @@ Widget dropDown({
                   // change button value to selected value
                   onChanged: (String? newValue) {
                     selectedValue.value = newValue!;
+                  },
+                )))),
+      ),
+    ],
+  );
+}
+
+Widget orderDropDown({
+  required BuildContext context,
+  required RxList<String> items,
+  required RxString hintText,
+  required RxString selectedValue,
+  required RxBool isProduct,
+}) {
+  return Row(
+    children: [
+      Expanded(
+        child: Container(
+            padding: EdgeInsets.only(
+              left: Get.width * 0.05,
+              right: Get.width * 0.05,
+            ),
+            height: Get.height * 0.055,
+            decoration: BoxDecoration(
+              color: ColorRes.white,
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 5,
+                  spreadRadius: 2,
+                  color: Colors.grey.shade300,
+                ),
+              ],
+              // border: Border.all(color: ColorRes.skyBlue, width: 0.5),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Obx((() => DropdownButton(
+                  underline: const SizedBox(),
+
+                  // Down Arrow Icon
+                  icon: const SizedBox(),
+                  //  Icon(
+                  //   Icons.keyboard_arrow_down,
+                  //   size: 20,
+                  //   color: ColorRes.skyBlue,
+                  // ),
+                  isExpanded: false,
+
+                  // hint text
+                  hint: Text(
+                    hintText.value,
+                    style: (hintText.value ==
+                                StringRes.productName.toLowerCase() ||
+                            hintText.value == StringRes.selectProduct ||
+                            hintText.value ==
+                                StringRes.customerName.toLowerCase())
+                        ? appTextStyle(
+                            color: ColorRes.skyBlue,
+                            fontSize: 13,
+                            weight: FontWeight.w300)
+                        : TextStyle(color: ColorRes.black),
+                  ),
+
+                  // Array list of items
+                  items: items.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+
+                  // After selecting the desired option,it will
+                  // change button value to selected value
+                  onChanged: (String? newValue) async {
+                    selectedValue.value = newValue!;
+                    orderController.customerNameFilterval.value = newValue;
+                    RxList proId = [].obs;
+                    RxList cusId = [].obs;
+                    if (isProduct.value) {
+                      orderController.proName.value = selectedValue.value;
+                      await FirebaseFirestore.instance
+                          .collection(FireStoreCollections.newOrder)
+                          .get()
+                          .then((value) {
+                        for (int i = 0; i < value.docs.length; i++) {
+                          if (value.docs[i]['product'] == selectedValue.value) {
+                            proId.add(value.docs[i].id);
+                            orderController.proNameId.value =
+                                LinkedHashSet<String>.from(proId).toList();
+                            print("proNameId -=> ${value.docs[i].id}");
+                          }
+                        }
+                      });
+                      if (orderController.cusNameId.isNotEmpty) {
+                        for (int i = 0;
+                            i < orderController.cusNameId.length;
+                            i++) {
+                          if (orderController.cusNameId[i] ==
+                              orderController.proNameId[i]) {
+                            print(orderController.cusNameId[i]);
+
+                            await FirebaseFirestore.instance
+                                .collection(FireStoreCollections.newOrder)
+                                .get()
+                                .then((value) {
+                              for (int j = 0; j < value.docs.length; j++) {
+                                if (orderController.cusNameId[i] ==
+                                    value.docs[j].id) {
+                                  orderController.stream.value = FirebaseFirestore
+                                      .instance
+                                      .collection(FireStoreCollections.newOrder)
+                                      .where("product",
+                                          isEqualTo: selectedValue.value)
+                                      // .doc(orderController.cusNameId[i].toString())
+                                      .snapshots();
+                                } else {
+                                  orderController.stream.value = FirebaseFirestore
+                                      .instance
+                                      .collection(FireStoreCollections.newOrder)
+                                      .where("orderDate",
+                                          isEqualTo: selectedValue.value)
+                                      // .doc(orderController.cusNameId[i].toString())
+                                      .snapshots();
+                                }
+                              }
+                            });
+                          }
+                        }
+                      } else {
+                        orderController.stream.value = FirebaseFirestore
+                            .instance
+                            .collection(FireStoreCollections.newOrder)
+                            .where("product", isEqualTo: selectedValue.value)
+                            // .doc(orderController.cusNameId[i].toString())
+                            .snapshots();
+                      }
+
+                      // if (orderController.cusNameId.value ==
+                      //     orderController.proNameId.value) {
+                      //   orderController.stream.value = FirebaseFirestore
+                      //       .instance
+                      //       .collection(FireStoreCollections.newOrder)
+                      //       .where("product", isEqualTo: selectedValue.value)
+                      //       .snapshots();
+                      // } else {}
+                    } else {
+                      orderController.cusName.value = selectedValue.value;
+
+                      orderController.stream.value = FirebaseFirestore.instance
+                          .collection(FireStoreCollections.newOrder)
+                          .where("customerName", isEqualTo: selectedValue.value)
+                          .snapshots();
+                      await FirebaseFirestore.instance
+                          .collection(FireStoreCollections.newOrder)
+                          .get()
+                          .then((value) {
+                        for (int i = 0; i < value.docs.length; i++) {
+                          if (value.docs[i]['customerName'] ==
+                              selectedValue.value) {
+                            cusId.add(value.docs[i].id);
+                            orderController.cusNameId.value =
+                                LinkedHashSet<String>.from(cusId).toList();
+                            print("cusNameId -=> ${value.docs[i].id}");
+                          }
+                        }
+                      });
+
+                      orderController.stream.value = FirebaseFirestore.instance
+                          .collection(FireStoreCollections.newOrder)
+                          .where("customerName", isEqualTo: selectedValue.value)
+                          // .doc(orderController.cusNameId[i].toString())
+                          .snapshots();
+                    }
+                  },
+                )))),
+      ),
+    ],
+  );
+}
+
+Widget serviceDropDown({
+  required BuildContext context,
+  required RxList<String> items,
+  required RxString hintText,
+  required RxString selectedValue,
+}) {
+  return Row(
+    children: [
+      Expanded(
+        child: Container(
+            padding: EdgeInsets.only(
+              left: Get.width * 0.05,
+              right: Get.width * 0.05,
+            ),
+            height: Get.height * 0.055,
+            decoration: BoxDecoration(
+              color: ColorRes.white,
+              // border: Border.all(color: ColorRes.skyBlue, width: 0.5),
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 5,
+                  spreadRadius: 2,
+                  color: Colors.grey.shade300,
+                )
+              ],
+            ),
+            child: Obx((() => DropdownButton(
+                  underline: const SizedBox(),
+
+                  // Down Arrow Icon
+                  icon: const SizedBox(),
+                  // Icon(
+                  //   Icons.keyboard_arrow_down,
+                  //   size: 20,
+                  //   color: ColorRes.skyBlue,
+                  // ),
+                  isExpanded: true,
+
+                  // hint text
+                  hint: Text(
+                    hintText.value,
+                    style: (hintText.value == StringRes.selectProduct ||
+                            hintText.value ==
+                                StringRes.customerName.toLowerCase())
+                        ? appTextStyle(
+                            color: ColorRes.skyBlue,
+                            fontSize: 12,
+                            weight: FontWeight.w300,
+                          )
+                        : TextStyle(color: ColorRes.black),
+                  ),
+
+                  // Array list of items
+                  items: items.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+
+                  // After selecting the desired option,it will
+                  // change button value to selected value
+                  onChanged: (String? newValue) {
+                    selectedValue.value = newValue!;
+                    orderController.customerNameFilterval.value = newValue;
+                    orderController.serviceStream.value = FirebaseFirestore
+                        .instance
+                        .collection(FireStoreCollections.newService)
+                        .where("serviceCustomerName",
+                            isEqualTo: selectedValue.value)
+                        .snapshots();
                   },
                 )))),
       ),

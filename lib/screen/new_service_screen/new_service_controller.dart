@@ -9,6 +9,7 @@ import 'package:product_app/model/product_model.dart';
 import 'package:product_app/notification/notification_model.dart';
 import 'package:product_app/notification/notification_service.dart';
 import 'package:product_app/service/user_service.dart';
+import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 
 class NewServiceController extends GetxController implements GetxService {
@@ -115,6 +116,28 @@ class NewServiceController extends GetxController implements GetxService {
             serviceContactNumber: contactNumberController.value.text,
             serviceStatus: "pending"),
       );
+
+      // await FirebaseHelper.firebaseHelper.firebaseFirestore
+      //     .collection(FireStoreCollections.newOrder)
+      //     .get()
+      //     .then((value) {
+      //   for (int i = 0; i < value.docs.length; i++) {
+      //     if (value.docs[i]['customerName'] == customerName.value) {
+      //       print(value.docs[i].id);
+      //       FirebaseHelper.firebaseHelper.firebaseFirestore
+      //           .collection(FireStoreCollections.newOrder)
+      //           .doc(value.docs[i].id)
+      //           .update({
+      //         "serviceUid": Global.uid,
+      //         "serviceCustomerName": customerName.value,
+      //         "serviceDate": dateController.value.text,
+      //         "serviceRemark": remarkController.value.text,
+      //         "serviceContactNumber": contactNumberController.value.text,
+      //         "serviceStatus": "pending"
+      //       });
+      //     }
+      //   }
+      // });
 
       await FirebaseHelper.firebaseHelper.firebaseFirestore
           .collection("users")

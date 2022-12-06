@@ -66,6 +66,7 @@ class NewOrderModel {
   String? serviceDate;
   String? serviceRemark;
   String? serviceContactNumber;
+  String? serviceStatus;
 
   NewOrderModel({
     this.status,
@@ -79,6 +80,11 @@ class NewOrderModel {
     this.contactNumber,
     this.uid,
     this.id,
+    this.serviceRemark,
+    this.serviceContactNumber,
+    this.serviceDate,
+    this.serviceCustomerName,
+    this.serviceStatus,
   });
 
   factory NewOrderModel.fromMap(Map<String, dynamic> data) => NewOrderModel(
@@ -93,6 +99,11 @@ class NewOrderModel {
         uid: data["uid"],
         id: data['id'],
         contactNumber: data['contactNumber'],
+        serviceContactNumber: data['serviceContactNumber'],
+        serviceDate: data['serviceDate'],
+        serviceRemark: data['serviceRemark'],
+        serviceCustomerName: data['serviceCustomerName'],
+        serviceStatus: data['serviceStatus'],
       );
 
   Map<String, dynamic> toMap() => {
@@ -107,5 +118,10 @@ class NewOrderModel {
         "deliverCancel": deliverCancel,
         "deliveredDate": deliveredDate,
         "uid": uid,
+        "serviceDate": serviceDate,
+        "serviceRemark": serviceRemark,
+        "serviceContactNumber": serviceContactNumber,
+        "serviceCustomerName": serviceCustomerName,
+        "serviceStatus": serviceStatus,
       };
 }

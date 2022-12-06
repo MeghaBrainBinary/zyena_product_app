@@ -131,7 +131,7 @@ class UpdateOrderController extends GetxController implements GetxService {
         controller: orderController.orderListSearchController.value,
         columnList: orderListColumnList,
         title: StringRes.orderList,
-        stream: orderController.stream,
+        stream: orderController.stream.value,
       ));
     } else {
       if (errorCustomerName != "") {
