@@ -8,6 +8,7 @@ import 'package:product_app/common/loaders.dart';
 import 'package:product_app/common/search_bar.dart';
 import 'package:product_app/common/sizedbox.dart';
 import 'package:product_app/common/title_with_textfield.dart';
+import 'package:product_app/helpers/prefs.dart';
 import 'package:product_app/screen/new_order_screen/new_order_controller.dart';
 import 'package:product_app/service/user_service.dart';
 import 'package:product_app/utils/appstyle.dart';
@@ -616,102 +617,73 @@ Widget orderDropDown({
                   onChanged: (String? newValue) async {
                     selectedValue.value = newValue!;
                     orderController.customerNameFilterval.value = newValue;
-                    RxList proId = [].obs;
-                    RxList cusId = [].obs;
+
                     if (isProduct.value) {
+                      PrefService.setValue("proName", selectedValue.value);
                       orderController.proName.value = selectedValue.value;
-                      await FirebaseFirestore.instance
+                      // await FirebaseFirestore.instance
+                      //     .collection(FireStoreCollections.newOrder)
+                      //     .get()
+                      //     .then((value) {
+                      //   for (int i = 0; i < value.docs.length; i++) {
+                      //     if (value.docs[i]['product'] == selectedValue.value) {
+                      //       proId.add(value.docs[i].id);
+                      //       orderController.proNameId.value =
+                      //           LinkedHashSet<String>.from(proId).toList();
+                      //       print("proNameId -=> ${value.docs[i].id}");
+                      //     }
+                      //   }
+                      // });
+
+                      orderController.stream.value = FirebaseFirestore.instance
                           .collection(FireStoreCollections.newOrder)
-                          .get()
-                          .then((value) {
-                        for (int i = 0; i < value.docs.length; i++) {
-                          if (value.docs[i]['product'] == selectedValue.value) {
-                            proId.add(value.docs[i].id);
-                            orderController.proNameId.value =
-                                LinkedHashSet<String>.from(proId).toList();
-                            print("proNameId -=> ${value.docs[i].id}");
-                          }
-                        }
-                      });
-                      if (orderController.cusNameId.isNotEmpty) {
-                        for (int i = 0;
-                            i < orderController.cusNameId.length;
-                            i++) {
-                          if (orderController.cusNameId[i] ==
-                              orderController.proNameId[i]) {
-                            print(orderController.cusNameId[i]);
-
-                            await FirebaseFirestore.instance
-                                .collection(FireStoreCollections.newOrder)
-                                .get()
-                                .then((value) {
-                              for (int j = 0; j < value.docs.length; j++) {
-                                if (orderController.cusNameId[i] ==
-                                    value.docs[j].id) {
-                                  orderController.stream.value = FirebaseFirestore
-                                      .instance
-                                      .collection(FireStoreCollections.newOrder)
-                                      .where("product",
-                                          isEqualTo: selectedValue.value)
-                                      // .doc(orderController.cusNameId[i].toString())
-                                      .snapshots();
-                                } else {
-                                  orderController.stream.value = FirebaseFirestore
-                                      .instance
-                                      .collection(FireStoreCollections.newOrder)
-                                      .where("orderDate",
-                                          isEqualTo: selectedValue.value)
-                                      // .doc(orderController.cusNameId[i].toString())
-                                      .snapshots();
-                                }
-                              }
-                            });
-                          }
-                        }
-                      } else {
-                        orderController.stream.value = FirebaseFirestore
-                            .instance
-                            .collection(FireStoreCollections.newOrder)
-                            .where("product", isEqualTo: selectedValue.value)
-                            // .doc(orderController.cusNameId[i].toString())
-                            .snapshots();
-                      }
-
-                      // if (orderController.cusNameId.value ==
-                      //     orderController.proNameId.value) {
+                          .where("customerName",
+                              isEqualTo: PrefService.getString('cusName'))
+                          .where("product", isEqualTo: selectedValue.value)
+                          // .doc(orderController.cusNameId[i].toString())
+                          .snapshots();
+                    } else {
+                      orderController.cusName.value = selectedValue.value;
+                      PrefService.setValue(
+                          "cusName", selectedValue.value.toString());
+                      print(
+                          "cusname prefs ==> ${PrefService.getString('cusName')}");
+                      orderController.stream.value = FirebaseFirestore.instance
+                          .collection(FireStoreCollections.newOrder)
+                          .where("customerName", isEqualTo: selectedValue.value)
+                          .snapshots();
+                      // await FirebaseFirestore.instance
+                      //     .collection(FireStoreCollections.newOrder)
+                      //     .get()
+                      //     .then((value) {
+                      //   for (int i = 0; i < value.docs.length; i++) {
+                      //     if (value.docs[i]['customerName'] ==
+                      //         selectedValue.value) {
+                      //       cusId.add(value.docs[i].id);
+                      //       orderController.cusNameId.value =
+                      //           LinkedHashSet<String>.from(cusId).toList();
+                      //       print("cusNameId -=> ${value.docs[i].id}");
+                      //     }
+                      //   }
+                      // });
+                      // if (PrefService.getString('proName') != "") {
                       //   orderController.stream.value = FirebaseFirestore
                       //       .instance
                       //       .collection(FireStoreCollections.newOrder)
-                      //       .where("product", isEqualTo: selectedValue.value)
+                      //       .where("customerName",
+                      //           isEqualTo: selectedValue.value)
+                      //       .where('product',
+                      //           isEqualTo: PrefService.getString('proName'))
+                      //       // .doc(orderController.cusNameId[i].toString())
                       //       .snapshots();
-                      // } else {}
-                    } else {
-                      orderController.cusName.value = selectedValue.value;
-
+                      // } else {
                       orderController.stream.value = FirebaseFirestore.instance
                           .collection(FireStoreCollections.newOrder)
                           .where("customerName", isEqualTo: selectedValue.value)
-                          .snapshots();
-                      await FirebaseFirestore.instance
-                          .collection(FireStoreCollections.newOrder)
-                          .get()
-                          .then((value) {
-                        for (int i = 0; i < value.docs.length; i++) {
-                          if (value.docs[i]['customerName'] ==
-                              selectedValue.value) {
-                            cusId.add(value.docs[i].id);
-                            orderController.cusNameId.value =
-                                LinkedHashSet<String>.from(cusId).toList();
-                            print("cusNameId -=> ${value.docs[i].id}");
-                          }
-                        }
-                      });
 
-                      orderController.stream.value = FirebaseFirestore.instance
-                          .collection(FireStoreCollections.newOrder)
-                          .where("customerName", isEqualTo: selectedValue.value)
                           // .doc(orderController.cusNameId[i].toString())
                           .snapshots();
+                      // }
                     }
                   },
                 )))),

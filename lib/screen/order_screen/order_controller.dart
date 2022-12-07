@@ -34,6 +34,7 @@ class OrderController extends GetxController implements GetxService {
   RxList<String> productNames = <String>[].obs;
 
   RxString val = "".obs;
+  RxBool present = false.obs;
   RxString cusName = "".obs;
   RxString proName = "".obs;
   RxList proNameId = [].obs;
@@ -87,6 +88,8 @@ class OrderController extends GetxController implements GetxService {
 
   customersDataRows({required List list, required BuildContext context}) {
     int i = 1;
+    list.removeWhere(
+        (element) => ["", null, false, 0].contains(element['customerName']));
 
     return (orderController.val.value.isEmpty)
         ? <DataRow>[
@@ -232,6 +235,7 @@ class OrderController extends GetxController implements GetxService {
     productNames.value = [];
     await FirebaseHelper.firebaseHelper.firebaseFirestore
         .collection(FireStoreCollections.newOrder)
+        .where("status", isEqualTo: 'delivered')
         .get()
         .then((value) {
       if (value.docs.length.isEqual(0)) {
@@ -255,6 +259,7 @@ class OrderController extends GetxController implements GetxService {
     productNames.value = [];
     await FirebaseHelper.firebaseHelper.firebaseFirestore
         .collection(FireStoreCollections.newOrder)
+        .where('status', isEqualTo: 'return')
         .get()
         .then((value) {
       if (value.docs.length.isEqual(0)) {
@@ -274,7 +279,9 @@ class OrderController extends GetxController implements GetxService {
 
   Set serviceCustomerName = {};
   RxList serviceCustomerNames = [].obs;
-  getServiceCustomerNames() async {
+  getPendingServiceCustomerNames() async {
+    customerNames.value = [];
+
     await FirebaseHelper.firebaseHelper.firebaseFirestore
         .collection("newService")
         .get()
@@ -282,22 +289,57 @@ class OrderController extends GetxController implements GetxService {
       if (value.docs.length.isEqual(0)) {
       } else {
         for (int i = 0; i < value.docs.length; i++) {
-          serviceCustomerNames.add(value.docs[i]['serviceCustomerName']);
-          customerNames.value =
-              LinkedHashSet<String>.from(serviceCustomerNames).toList();
+          if (value.docs[i]['serviceStatus'] == "pending") {
+            serviceCustomerNames.add(value.docs[i]['serviceCustomerName']);
+            customerNames.value =
+                LinkedHashSet<String>.from(serviceCustomerNames).toList();
+          } else {
+            customerNames.value = [];
+          }
         }
       }
     });
   }
 
+  RxList completeServiceCustomerNames = [].obs;
+  getCompleteServiceCustomerNames() async {
+    customerNames.value = [];
+
+    await FirebaseHelper.firebaseHelper.firebaseFirestore
+        .collection("newService")
+        .where('serviceStatus', isEqualTo: 'complete')
+        .get()
+        .then((value) {
+      if (value.docs.length.isEqual(0)) {
+      } else {
+        for (int i = 0; i < value.docs.length; i++) {
+          if (value.docs[i]['serviceStatus'] == "complete") {
+            completeServiceCustomerNames
+                .add(value.docs[i]['serviceCustomerName']);
+            customerNames.value =
+                LinkedHashSet<String>.from(completeServiceCustomerNames)
+                    .toList();
+          } else {
+            customerNames.value = [];
+          }
+        }
+      }
+    });
+  }
+
+  List productsData = [];
   productsDataRows({required List list, required BuildContext context}) {
     int i = 1;
 
+    list.removeWhere(
+        (element) => ["", null, false, 0].contains(element['product']));
+
     return (orderController.val.value.isEmpty)
         ? <DataRow>[
-            ...list.map(
-              (e) => productsDataRow(e: e, i: i++, context: context),
-            ),
+            ...list.map((e) {
+              return productsDataRow(
+                  e: e, i: i++, context: context, length: list.length);
+            }),
           ]
         : <DataRow>[];
   }

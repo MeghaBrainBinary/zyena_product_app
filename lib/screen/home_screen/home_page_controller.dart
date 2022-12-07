@@ -41,6 +41,7 @@ class HomePageController extends GetxController implements GetxService {
   }
 
   void pendingOrderOnTap() {
+    orderController.customerNames.value = [];
     orderController.getPendingCustomerNames();
     orderController.getPendingProductNames();
     orderController.stream.value = FirebaseFirestore.instance
@@ -104,7 +105,7 @@ class HomePageController extends GetxController implements GetxService {
 
   /// pending service onTap
   void pendingServiceOnTap() {
-    orderController.getServiceCustomerNames();
+    orderController.getPendingServiceCustomerNames();
     orderController.serviceStream.value = FirebaseFirestore.instance
         .collection(FireStoreCollections.newService)
         .orderBy('serviceDate')
@@ -153,7 +154,7 @@ class HomePageController extends GetxController implements GetxService {
 
   /// complete service onTap
   void completeServiceOnTap() {
-    orderController.getServiceCustomerNames();
+    orderController.getCompleteServiceCustomerNames();
     orderController.serviceStream.value = FirebaseFirestore.instance
         .collection(FireStoreCollections.newService)
         .orderBy('serviceDate')

@@ -7,6 +7,7 @@ import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 NewOrderController newOrderController = Get.put(NewOrderController());
 
@@ -122,8 +123,16 @@ DataRow customersDataRow(
       DataCell(
         orderController.verticalDivider,
       ),
-      DataCell(
-          onTap: () {},
+      DataCell(onTap: () async {
+        newOrderController.load.value = true;
+        await FirebaseHelper.firebaseHelper.firebaseFirestore
+            .collection(FireStoreCollections.newOrder)
+            .doc("${e.id}")
+            .update({
+          "customerName": "",
+        });
+        newOrderController.load.value = false;
+      },
           Center(
               child: Text(
             StringRes.delete,
@@ -134,7 +143,21 @@ DataRow customersDataRow(
 }
 
 DataRow productsDataRow(
-    {required dynamic e, required int i, required BuildContext context}) {
+    {required dynamic e,
+    required int i,
+    required BuildContext context,
+    required int length}) {
+  FirebaseFirestore.instance
+      .collection(FireStoreCollections.newOrder)
+      .get()
+      .then((value) {
+    for (int i = 0; i < value.docs.length; i++) {
+      if (value.docs.contains(value.docs[i]['product'])) {
+        print('product e ==> ${e['product']}');
+      }
+    }
+  });
+
   return DataRow(
     cells: <DataCell>[
       DataCell(
@@ -197,7 +220,16 @@ DataRow productsDataRow(
         orderController.verticalDivider,
       ),
       DataCell(
-        onTap: () {},
+        onTap: () async {
+          newOrderController.load.value = true;
+          await FirebaseFirestore.instance
+              .collection(FireStoreCollections.newOrder)
+              .doc("${e.id}")
+              .update({
+            "product": "",
+          });
+          newOrderController.load.value = false;
+        },
         Center(
           child: Text(
             StringRes.delete,

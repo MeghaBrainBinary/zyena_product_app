@@ -24,13 +24,16 @@ void main() async {
   await Firebase.initializeApp();
   await PrefService.init();
   NotificationService.init();
-
-  await FirebaseMessaging.instance.getToken().then((value) {
-    PrefService.setValue(PrefKeys.userToken, value.toString());
-    if (kDebugMode) {
-      print("FCM Token => $value");
-    }
-  });
+  try {
+    await FirebaseMessaging.instance.getToken().then((value) {
+      PrefService.setValue(PrefKeys.userToken, value.toString());
+      if (kDebugMode) {
+        print("FCM Token => $value");
+      }
+    });
+  } catch (e) {
+    print(e);
+  }
   runApp(const MyApp());
 }
 
