@@ -33,6 +33,13 @@ class OrderController extends GetxController implements GetxService {
   // RxList<String> serviceCustomerNames = <String>[].obs;
   RxList<String> productNames = <String>[].obs;
 
+  RxList<String> orderStatus = [
+    "pending",
+    "delivered",
+    "return",
+    "cancel",
+  ].obs;
+
   RxString val = "".obs;
   RxBool present = false.obs;
   RxString cusName = "".obs;
@@ -52,19 +59,16 @@ class OrderController extends GetxController implements GetxService {
   RxList completeServiceList = [].obs;
   RxBool isService = false.obs;
   Rx<Stream> stream = const Stream.empty().obs;
+  RxString selectedOrder = StringRes.changeOrderStatus.toLowerCase().obs;
 
   orderListDataRows({required List list}) {
     int i = 1;
     orderController.orderListData.value = list.where((element) {
       return element['customerName'].contains(orderController.val.value) ||
-          //  element['customerName'].contains(orderController.cusName.value) ||
-
           element['product'].contains(orderController.val.value) ||
-          element['product'].contains(orderController.proName.value) ||
           element['orderDate'].contains(orderController.val.value) ||
           element['expirationDate'].contains(orderController.val.value) ||
-          element['contactNumber'].contains(orderController.val.value) ||
-          element['customerName'].contains(orderController.customerName.value);
+          element['contactNumber'].contains(orderController.val.value);
     }).toList();
 
     return (orderController.val.value.isEmpty)
@@ -345,7 +349,7 @@ class OrderController extends GetxController implements GetxService {
   }
 
   List pendingData = [];
-  pendingOrderDataRows({required List list}) {
+  pendingOrderDataRows({required List list, required BuildContext context}) {
     int i = 1;
     pendingData = list.where((element) {
       return element['status'].contains("pending");
@@ -363,12 +367,12 @@ class OrderController extends GetxController implements GetxService {
     return (orderController.val.value.isEmpty)
         ? <DataRow>[
             ...pendingData.map(
-              (e) => pendingOrderDataRow(e: e, i: i++),
+              (e) => pendingOrderDataRow(e: e, i: i++, context: context),
             ),
           ]
         : <DataRow>[
             ...pendingSearchList.map(
-              (e) => pendingOrderDataRow(e: e, i: i++),
+              (e) => pendingOrderDataRow(e: e, i: i++, context: context),
             ),
           ];
   }

@@ -80,6 +80,18 @@ List<DataColumn> orderListColumnList = [
       ),
     ),
   ),
+  DataColumn(label: verticalDivider),
+  DataColumn(
+    label: Expanded(
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          StringRes.status,
+          style: orderController.columnTextStyle,
+        ),
+      ),
+    ),
+  ),
 ];
 
 List<DataColumn> pendingOrderColumnList = [

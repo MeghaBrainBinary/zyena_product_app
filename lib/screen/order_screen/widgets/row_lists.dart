@@ -1,69 +1,77 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:product_app/common/button.dart';
+import 'package:product_app/common/loaders.dart';
+import 'package:product_app/common/sizedbox.dart';
+import 'package:product_app/helpers/prefkeys.dart';
+import 'package:product_app/helpers/prefs.dart';
+import 'package:product_app/notification/notification_model.dart';
+import 'package:product_app/notification/notification_service.dart';
 import 'package:product_app/screen/home_screen/home_page_controller.dart';
 import 'package:product_app/screen/new_order_screen/new_order_controller.dart';
+import 'package:product_app/screen/new_order_screen/widget/dropdown_button.dart';
 import 'package:product_app/screen/order_screen/widgets/customer_popup.dart';
 import 'package:product_app/service/user_service.dart';
+import 'package:product_app/utils/appstyle.dart';
+import 'package:product_app/utils/color_res.dart';
 import 'package:product_app/utils/firestore_collections.dart';
 import 'package:product_app/utils/string_res.dart';
 // ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+// ignore: depend_on_referenced_packages
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 NewOrderController newOrderController = Get.put(NewOrderController());
 
-DataRow orderListDataRow({required dynamic e, required int i}) {
-  return DataRow(
+orderListDataRow({required dynamic e, required int i}) {
+  return DataRow.byIndex(
+    color: (e['status'] == "cancel")
+        ? MaterialStateColor.resolveWith(
+            (states) => Colors.redAccent.withOpacity(0.1))
+        : MaterialStateColor.resolveWith((states) => ColorRes.white),
+    index: i,
     cells: <DataCell>[
       DataCell(Center(
-        child: Text(
-          "$i",
-          style: orderController.rowTextStyle,
-        ),
-      )), //Extracting from Map element the value
-      DataCell(
-        orderController.verticalDivider,
-      ),
+          child: Text(
+        "$i",
+        style: orderController.rowTextStyle,
+      ))), //Extracting from Map element the value
+      DataCell(orderController.verticalDivider),
       DataCell(Center(
           child: Text(
         "${e['customerName']}",
         style: orderController.rowTextStyle,
       ))),
-      DataCell(
-        orderController.verticalDivider,
-      ),
+      DataCell(orderController.verticalDivider),
       DataCell(Center(
           child: Text(
         "${e['product']}",
         style: orderController.rowTextStyle,
       ))),
-      DataCell(
-        orderController.verticalDivider,
-      ),
+      DataCell(orderController.verticalDivider),
       DataCell(Center(
           child: Text(
         "${e['orderDate']}",
         style: orderController.rowTextStyle,
       ))),
-      DataCell(
-        orderController.verticalDivider,
-      ),
+      DataCell(orderController.verticalDivider),
       DataCell(Center(
           child: Text(
         "${e['expirationDate']}",
         style: orderController.rowTextStyle,
       ))),
-
-      DataCell(
-        orderController.verticalDivider,
-      ),
-      DataCell(
-        Center(
+      DataCell(orderController.verticalDivider),
+      DataCell(Center(
           child: Text(
-            "${e['contactNumber']}",
-            style: orderController.rowTextStyle,
-          ),
-        ),
-      ),
+        "${e['contactNumber']}",
+        style: orderController.rowTextStyle,
+      ))),
+      DataCell(orderController.verticalDivider),
+      DataCell(Center(
+          child: Text(
+        "${e['status']}",
+        style: orderController.rowTextStyle,
+      ))),
     ],
   );
 }
@@ -147,17 +155,6 @@ DataRow productsDataRow(
     required int i,
     required BuildContext context,
     required int length}) {
-  FirebaseFirestore.instance
-      .collection(FireStoreCollections.newOrder)
-      .get()
-      .then((value) {
-    for (int i = 0; i < value.docs.length; i++) {
-      if (value.docs.contains(value.docs[i]['product'])) {
-        print('product e ==> ${e['product']}');
-      }
-    }
-  });
-
   return DataRow(
     cells: <DataCell>[
       DataCell(
@@ -241,7 +238,8 @@ DataRow productsDataRow(
   );
 }
 
-DataRow pendingOrderDataRow({required dynamic e, required int i}) {
+DataRow pendingOrderDataRow(
+    {required dynamic e, required int i, required BuildContext context}) {
   return DataRow(
     cells: <DataCell>[
       DataCell(Center(
@@ -279,17 +277,274 @@ DataRow pendingOrderDataRow({required dynamic e, required int i}) {
       ),
       DataCell(Center(
           child: Text(
-        "${e['dueDate']}",
+        "${e['expirationDate']}",
         style: orderController.rowTextStyle,
       ))),
       DataCell(
         orderController.verticalDivider,
       ),
-      DataCell(Center(
-          child: Text(
-        "${e['deliverCancel']}",
-        style: orderController.rowTextStyle,
-      ))),
+      DataCell(onTap: () {
+        showDialog(
+          barrierDismissible: false,
+          barrierColor: ColorRes.black.withOpacity(0.65),
+          context: context,
+          builder: (context) => StatefulBuilder(builder: (context, setState) {
+            orderController.selectedOrder.value =
+                StringRes.changeOrderStatus.toLowerCase();
+            return AlertDialog(
+              insetPadding: const EdgeInsets.all(20),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              actionsPadding: const EdgeInsets.all(0),
+              contentPadding: const EdgeInsets.symmetric(vertical: 0),
+              actionsAlignment: MainAxisAlignment.center,
+              content: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              if (kDebugMode) {
+                                print("tapped........");
+                              }
+                              Navigator.pop(context);
+                            },
+                            child: SizedBox(
+                              height: 50,
+                              width: 50,
+                              // color: Colors.blue,
+                              child: Icon(
+                                Icons.close,
+                                color: ColorRes.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        alignment: const Alignment(0, 1.25),
+                        children: [
+                          Container(
+                            height: Get.height / 2.6,
+                            width: Get.width,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 0),
+                            padding: const EdgeInsets.symmetric(horizontal: 30),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 5,
+                                      spreadRadius: 0.5,
+                                      offset: const Offset(1, 1),
+                                      color: Colors.grey.withOpacity(0.3))
+                                ]),
+                            child: Column(
+                              children: [
+                                sizedBoxHeight(height: 0.03),
+                                Text(
+                                  StringRes.changeOrderStatus,
+                                  style: appTextStyle(
+                                      color: ColorRes.skyBlue,
+                                      fontSize: 20,
+                                      weight: FontWeight.w500),
+                                ),
+                                sizedBoxHeight(height: 0.03),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "${StringRes.customerName} : ",
+                                      style: orderController.rowTextStyle,
+                                    ),
+                                    Text(
+                                      "${e['customerName']}",
+                                      style: orderController.rowTextStyle,
+                                    ),
+                                  ],
+                                ),
+                                sizedBoxHeight(height: 0.012),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "${StringRes.productName} : ",
+                                      style: orderController.rowTextStyle,
+                                    ),
+                                    Text(
+                                      "${e['product']}",
+                                      style: orderController.rowTextStyle,
+                                    ),
+                                  ],
+                                ),
+                                sizedBoxHeight(height: 0.012),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "${StringRes.orderDate} : ",
+                                      style: orderController.rowTextStyle,
+                                    ),
+                                    Text(
+                                      "${e['orderDate']}",
+                                      style: orderController.rowTextStyle,
+                                    ),
+                                  ],
+                                ),
+                                sizedBoxHeight(height: 0.03),
+                                dropDown(
+                                    context: context,
+                                    items: orderController.orderStatus,
+                                    hintText: orderController.selectedOrder,
+                                    selectedValue:
+                                        orderController.selectedOrder),
+                                // titleWithTextField(
+                                //     title: StringRes.status,
+                                //     hintText:
+                                //         StringRes.customerName.toLowerCase(),
+                                //     controller: newOrderController
+                                //         .customerNameController.value),
+                                // sizedBoxHeight(height: 0.05),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: Get.height * 0.07,
+                            width: Get.width * 0.5,
+                            child: button(
+                                text: StringRes.update,
+                                onTap: () async {
+                                  print(
+                                      "===========================================");
+                                  print(
+                                      "order =====> ${orderController.selectedOrder.value}");
+                                  // if (orderController.selectedOrder.value !=
+                                  //     StringRes.status.toLowerCase()) {
+                                  newOrderController.load.value = true;
+                                  if (orderController.selectedOrder.value ==
+                                      "cancel") {
+                                    orderController.present.value = true;
+                                  }
+                                  await FirebaseFirestore.instance
+                                      .collection(FireStoreCollections.newOrder)
+                                      .doc(e.id)
+                                      .update({
+                                    "status": orderController
+                                        .selectedOrder.value
+                                        .toString(),
+                                  });
+
+                                  await FirebaseHelper
+                                      .firebaseHelper.firebaseFirestore
+                                      .collection("users")
+                                      .get()
+                                      .then((value) {
+                                    if (value.docs.length.isEqual(0)) {
+                                    } else {
+                                      for (int i = 0;
+                                          i < value.docs.length;
+                                          i++) {
+                                        if (value.docs[i].id !=
+                                            PrefService.getString(
+                                                PrefKeys.uid)) {
+                                          NotificationService.sendNotification(
+                                              SendNotificationModel(
+                                            fcmTokens: [
+                                              value.docs[i]['fcmToken']
+                                            ],
+                                            title: "Order status",
+                                            body:
+                                                "${e['customerName']} order ${orderController.selectedOrder.value.toString()} ",
+                                          ));
+                                        }
+                                      }
+                                    }
+                                  });
+
+                                  newOrderController.load.value = false;
+                                  Get.back();
+                                  // } else {
+                                  //   snakBar(
+                                  //       title: StringRes.error,
+                                  //       text: "Please select status");
+                                  // }
+                                }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Obx(
+                    () => (newOrderController.load.value)
+                        ? const Center(child: SmallLoader())
+                        : const SizedBox(),
+                  )
+                ],
+              ),
+              actions: [
+                GestureDetector(
+                  onTap: () async {
+                    print("===========================================");
+                    print(
+                        "order =====> ${orderController.selectedOrder.value}");
+                    // if (orderController.selectedOrder.value !=
+                    //     StringRes.status.toLowerCase()) {
+                    newOrderController.load.value = true;
+                    if (orderController.selectedOrder.value == "cancel") {
+                      orderController.present.value = true;
+                    }
+                    await FirebaseFirestore.instance
+                        .collection(FireStoreCollections.newOrder)
+                        .doc(e.id)
+                        .update({
+                      "status": orderController.selectedOrder.value.toString(),
+                    });
+                    await FirebaseHelper.firebaseHelper.firebaseFirestore
+                        .collection("users")
+                        .get()
+                        .then((value) {
+                      if (value.docs.length.isEqual(0)) {
+                      } else {
+                        for (int i = 0; i < value.docs.length; i++) {
+                          if (value.docs[i].id !=
+                              PrefService.getString(PrefKeys.uid)) {
+                            NotificationService.sendNotification(
+                                SendNotificationModel(
+                              fcmTokens: [value.docs[i]['fcmToken']],
+                              title: "Order status",
+                              body:
+                                  "${e['customerName']} order ${orderController.selectedOrder.value.toString()} ",
+                            ));
+                          }
+                        }
+                      }
+                    });
+                    newOrderController.load.value = false;
+                    Get.back();
+                    // } else {
+                    //   snakBar(
+                    //       title: StringRes.error, text: "Please select status");
+                    // }
+                  },
+                  child: Container(
+                    height: Get.height * 0.07,
+                    width: Get.width * 0.5,
+                    color: Colors.transparent,
+                  ),
+                ),
+              ],
+            );
+          }),
+        );
+      },
+          Center(
+              child: Text(
+            "${e['status']}",
+            style: orderController.rowTextStyle,
+          ))),
       DataCell(
         orderController.verticalDivider,
       ),
@@ -340,7 +595,7 @@ DataRow deliveredDataRow({required dynamic e, required int i}) {
       ),
       DataCell(Center(
           child: Text(
-        "${e['deliveredDate']}",
+        "${e['expirationDate']}",
         style: orderController.rowTextStyle,
       ))),
       DataCell(
@@ -399,7 +654,7 @@ DataRow returnOrderDataRow({required dynamic e, required int i}) {
       DataCell(orderController.verticalDivider),
       DataCell(Center(
           child: Text(
-        "${e['deliveredDate']}",
+        "${e['expirationDate']}",
         style: orderController.rowTextStyle,
       ))),
       DataCell(orderController.verticalDivider),

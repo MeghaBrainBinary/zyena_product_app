@@ -144,7 +144,8 @@ class OrderScreen extends StatelessWidget {
                                                     ? orderListController
                                                         .pendingOrderDataRows(
                                                             list: snapshot
-                                                                .data.docs)
+                                                                .data.docs,
+                                                            context: context)
                                                     : (title ==
                                                             StringRes.delivered)
                                                         ? orderListController

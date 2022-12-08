@@ -84,4 +84,7 @@ class StringRes {
   static String updateService = "Update Service";
   static String customers = "Customers";
   static String products = "Products";
+
+  static String changeOrderStatus = "Change Order Status";
+  static String status = "Status";
 }

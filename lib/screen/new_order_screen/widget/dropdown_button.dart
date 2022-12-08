@@ -520,7 +520,9 @@ Widget dropDown({
                   // hint text
                   hint: Text(
                     hintText.value,
-                    style: (hintText.value == StringRes.selectProduct ||
+                    style: (hintText.value ==
+                                StringRes.changeOrderStatus.toLowerCase() ||
+                            hintText.value == StringRes.selectProduct ||
                             hintText.value ==
                                 StringRes.customerName.toLowerCase())
                         ? appTextStyle(
