@@ -11,6 +11,8 @@ MERGED from [:firebase_core] C:\Megha38\Nikunj_Sir\zyena_product_app\build\fireb
 MERGED from [:firebase_core] C:\Megha38\Nikunj_Sir\zyena_product_app\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-15:19
 MERGED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:15:5-29:19
 MERGED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:15:5-29:19
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:13:5-36:19
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:13:5-36:19
 MERGED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:30:5-59:19
 MERGED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:30:5-59:19
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\be8daef262888ce67b316d3030b25d21\transformed\jetified-firebase-analytics-21.2.0\AndroidManifest.xml:7:5-20
@@ -47,6 +49,8 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2ecb25d596bd1f57be343f5a95ef7f5\transformed\jetified-play-services-measurement-impl-21.2.0\AndroidManifest.xml:29:5-30:19
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\370f784ea8e127e8aa23ccb737e36224\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\370f784ea8e127e8aa23ccb737e36224\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:7:5-20
+MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2966aa02de0bf41f90c806731e11bbc5\transformed\jetified-glide-4.14.2\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2966aa02de0bf41f90c806731e11bbc5\transformed\jetified-glide-4.14.2\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ab60c15327dee4c544023f72fe3b581d\transformed\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ab60c15327dee4c544023f72fe3b581d\transformed\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e14b72aaf6d6622c6b1e6c2e1f0f5be8\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
@@ -63,14 +67,16 @@ MERGED from [com.google.android.gms:play-services-measurement-base:21.2.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-base:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3e892e21725eb0f5f9cebec27870a8f1\transformed\jetified-play-services-measurement-base-21.2.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\df1ef28bbcf1d61ed33c6e37eec9bc90\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\df1ef28bbcf1d61ed33c6e37eec9bc90\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:20:5-24:19
-MERGED from [androidx.core:core:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1377ecc082df76fa18d0a5c00a428a5e\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1377ecc082df76fa18d0a5c00a428a5e\transformed\core-1.6.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ddea8656ee267a7334f57fa35e5f884b\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ddea8656ee267a7334f57fa35e5f884b\transformed\core-1.7.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d3d0ee45eb2182951a42b71a33e8c48b\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d3d0ee45eb2182951a42b71a33e8c48b\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b58c033fbdb34520ddc2296d6b74a038\transformed\jetified-gifdecoder-4.14.2\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b58c033fbdb34520ddc2296d6b74a038\transformed\jetified-gifdecoder-4.14.2\AndroidManifest.xml:9:5-20
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a2c1be964acccc85a882b654b6b615e1\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a2c1be964acccc85a882b654b6b615e1\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1377ecc082df76fa18d0a5c00a428a5e\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.7.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ddea8656ee267a7334f57fa35e5f884b\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:label
 		ADDED from C:\Megha38\Nikunj_Sir\zyena_product_app\android\app\src\main\AndroidManifest.xml:4:9-42
 	android:icon
@@ -90,6 +96,8 @@ MERGED from [:firebase_messaging] C:\Megha38\Nikunj_Sir\zyena_product_app\build\
 MERGED from [:firebase_core] C:\Megha38\Nikunj_Sir\zyena_product_app\build\firebase_core\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-17:12
 MERGED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-31:12
 MERGED from [:path_provider_android] C:\Megha38\Nikunj_Sir\zyena_product_app\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-9:12
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-38:12
+MERGED from [:assets_audio_player_web] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player_web\intermediates\merged_manifest\release\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:17:1-61:12
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\be8daef262888ce67b316d3030b25d21\transformed\jetified-firebase-analytics-21.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4e1699bac89dd1175d6d06db5b332bdb\transformed\multidex-2.0.0\AndroidManifest.xml:17:1-22:12
@@ -113,9 +121,15 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:21.2.0] C:\Us
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\370f784ea8e127e8aa23ccb737e36224\transformed\jetified-play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7198ace9b4d1934fc3ff114c94a86530\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d90f57a12a96c2835fb0989fab685546\transformed\localbroadcastmanager-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33f6e003b64b97e57256e62dce0e51d3\transformed\jetified-exoplayer-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\76ee24ea8a3a693c7f9ca947da376d85\transformed\jetified-exoplayer-ui-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\bba6e715f707fc8b5d6c7e768b5f33b6\transformed\media-1.6.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7dc57a0d070e1310ea111a3f16629213\transformed\jetified-exoplayer-hls-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b59e19396f3903bcc48580d9765e8f9d\transformed\jetified-exoplayer-dash-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\19c521f6bce63e8a582c625a13522553\transformed\jetified-exoplayer-smoothstreaming-2.18.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9cf899a2c4714fb8c30e645385176e76\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:15:1-22:12
 MERGED from [com.google.firebase:firebase-components:17.0.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\be262abdbf3a50d8a9c7a38fbc9447ed\transformed\jetified-firebase-components-17.0.1\AndroidManifest.xml:15:1-23:12
-MERGED from [androidx.media:media:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2165fe86f612d6397de0240d104c6899\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2966aa02de0bf41f90c806731e11bbc5\transformed\jetified-glide-4.14.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ff0c498cc566515a47fd38fbdd20d1d6\transformed\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ab60c15327dee4c544023f72fe3b581d\transformed\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\578079b8087c1fcea574bf25b1e60e6c\transformed\jetified-firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
@@ -129,24 +143,37 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\5b6354e9ed103990c867f000b23ae1d6\transformed\jetified-play-services-measurement-sdk-api-21.2.0\AndroidManifest.xml:17:1-28:12
 MERGED from [com.google.android.gms:play-services-measurement-base:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3e892e21725eb0f5f9cebec27870a8f1\transformed\jetified-play-services-measurement-base-21.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\df1ef28bbcf1d61ed33c6e37eec9bc90\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:16:1-26:12
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\cf3f1e995ee64512142dac983271d20d\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.browser:browser:1.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33bff2b79f5a68c988cfc0a545303581\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\52731d36457b652527ddd3f03d369a99\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3fbceba73d68e3df87a362e654a1f662\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ec797cea626e928e38c1ac5f7e9b5ca4\transformed\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f47ffa4790b54f1a4037307e1bbf1d8\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1377ecc082df76fa18d0a5c00a428a5e\transformed\core-1.6.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\f6c9a2364267ea85f4b216fb7a99bc32\transformed\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d2645c15d8801b31770948a8129f86b2\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7650d3773ed93614f44fb3bce31ac345\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\83152c548fd04c9fbe90acbd9a3047ce\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f4ed89fbcd5f3f9387d6a66498f4a45\transformed\fragment-1.3.6\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.2.4] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e4a87da775e3da0c5becc72f5f060ba3\transformed\jetified-activity-1.2.4\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\76ac74eb722487a1dc955d693b9c0c92\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33bff2b79f5a68c988cfc0a545303581\transformed\browser-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\eec33829a67c7b1856aaaefc484e52ee\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-rtsp:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\115a4c88b27054e043da3fa6087a8306\transformed\jetified-exoplayer-rtsp-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\dee6d8c8b6dc19e3e57710a9da8960af\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3fbceba73d68e3df87a362e654a1f662\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ab4301ee69db5b0c2f4ecde2ac46cdca\transformed\recyclerview-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\52731d36457b652527ddd3f03d369a99\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a9cc59e34c0d098cfc2272f5d920c6ea\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f47ffa4790b54f1a4037307e1bbf1d8\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.7.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ddea8656ee267a7334f57fa35e5f884b\transformed\core-1.7.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d3d0ee45eb2182951a42b71a33e8c48b\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9faccae57c2c2ba35cb80b2644636f4e\transformed\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\bc0d7799f4af8ed3b548bb9be242640c\transformed\jetified-exoplayer-datasource-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a196bb5f34a2fb7d10363f4a05fa5265\transformed\jetified-exoplayer-database-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\0f122deb7f5882477170dbc14f49548d\transformed\jetified-exoplayer-extractor-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2f5f5fd2a52606d59928c40e76512fe0\transformed\jetified-exoplayer-decoder-2.18.1\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\c2de9aad09997080ff00d9968272b3a7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:17:1-26:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b58c033fbdb34520ddc2296d6b74a038\transformed\jetified-gifdecoder-4.14.2\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\17b0f654d56d4c2fe6f2321fced663a1\transformed\exifinterface-1.3.3\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\31cde4db919c5c215551acc03e1fa13d\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3e5bf45a3a871fab54c754ad3d80a4aa\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6f6054deddcc18f1b527182e40762c66\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b89023fcbc3bf281c0c8fb52901a1f15\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\05dfeef16e003fbe1c0aa99fceab36c8\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9570ebaaf363565c3b29f81798e3fca9\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1f889049b85831b81476e8926bb7f587\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ed81d55ce524046d98b69ce298bbe669\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7650d3773ed93614f44fb3bce31ac345\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\5c6cceedaa018b830d4dba7d014af8cf\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\20be37651db95f9b8dc086375e29cce8\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [io.grpc:grpc-android:1.48.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6df1e566b6f6583cd3bf9127323195e0\transformed\jetified-grpc-android-1.48.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a2c1be964acccc85a882b654b6b615e1\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\21850c3d5e683adee7e0b0c674565702\transformed\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
@@ -186,6 +213,10 @@ MERGED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_a
 MERGED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Megha38\Nikunj_Sir\zyena_product_app\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Megha38\Nikunj_Sir\zyena_product_app\build\path_provider_android\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:40
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:40
+MERGED from [:assets_audio_player_web] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player_web\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
+MERGED from [:assets_audio_player_web] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player_web\intermediates\merged_manifest\release\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-analytics:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\be8daef262888ce67b316d3030b25d21\transformed\jetified-firebase-analytics-21.2.0\AndroidManifest.xml:5:5-44
@@ -232,12 +263,24 @@ MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\StackApp 
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7198ace9b4d1934fc3ff114c94a86530\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d90f57a12a96c2835fb0989fab685546\transformed\localbroadcastmanager-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d90f57a12a96c2835fb0989fab685546\transformed\localbroadcastmanager-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33f6e003b64b97e57256e62dce0e51d3\transformed\jetified-exoplayer-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33f6e003b64b97e57256e62dce0e51d3\transformed\jetified-exoplayer-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\76ee24ea8a3a693c7f9ca947da376d85\transformed\jetified-exoplayer-ui-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-ui:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\76ee24ea8a3a693c7f9ca947da376d85\transformed\jetified-exoplayer-ui-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\bba6e715f707fc8b5d6c7e768b5f33b6\transformed\media-1.6.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\bba6e715f707fc8b5d6c7e768b5f33b6\transformed\media-1.6.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7dc57a0d070e1310ea111a3f16629213\transformed\jetified-exoplayer-hls-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-hls:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7dc57a0d070e1310ea111a3f16629213\transformed\jetified-exoplayer-hls-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b59e19396f3903bcc48580d9765e8f9d\transformed\jetified-exoplayer-dash-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-dash:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b59e19396f3903bcc48580d9765e8f9d\transformed\jetified-exoplayer-dash-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\19c521f6bce63e8a582c625a13522553\transformed\jetified-exoplayer-smoothstreaming-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-smoothstreaming:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\19c521f6bce63e8a582c625a13522553\transformed\jetified-exoplayer-smoothstreaming-2.18.1\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9cf899a2c4714fb8c30e645385176e76\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.android.datatransport:transport-api:3.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9cf899a2c4714fb8c30e645385176e76\transformed\jetified-transport-api-3.0.0\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-components:17.0.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\be262abdbf3a50d8a9c7a38fbc9447ed\transformed\jetified-firebase-components-17.0.1\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-components:17.0.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\be262abdbf3a50d8a9c7a38fbc9447ed\transformed\jetified-firebase-components-17.0.1\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.media:media:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2165fe86f612d6397de0240d104c6899\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.media:media:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2165fe86f612d6397de0240d104c6899\transformed\media-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2966aa02de0bf41f90c806731e11bbc5\transformed\jetified-glide-4.14.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:glide:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2966aa02de0bf41f90c806731e11bbc5\transformed\jetified-glide-4.14.2\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ff0c498cc566515a47fd38fbdd20d1d6\transformed\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ff0c498cc566515a47fd38fbdd20d1d6\transformed\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-safetynet:17.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ab60c15327dee4c544023f72fe3b581d\transformed\jetified-play-services-safetynet-17.0.0\AndroidManifest.xml:20:5-44
@@ -264,42 +307,68 @@ MERGED from [com.google.android.gms:play-services-measurement-base:21.2.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-base:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3e892e21725eb0f5f9cebec27870a8f1\transformed\jetified-play-services-measurement-base-21.2.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\df1ef28bbcf1d61ed33c6e37eec9bc90\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\df1ef28bbcf1d61ed33c6e37eec9bc90\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:18:5-43
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\cf3f1e995ee64512142dac983271d20d\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\cf3f1e995ee64512142dac983271d20d\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.browser:browser:1.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33bff2b79f5a68c988cfc0a545303581\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.browser:browser:1.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33bff2b79f5a68c988cfc0a545303581\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\52731d36457b652527ddd3f03d369a99\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\52731d36457b652527ddd3f03d369a99\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3fbceba73d68e3df87a362e654a1f662\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3fbceba73d68e3df87a362e654a1f662\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ec797cea626e928e38c1ac5f7e9b5ca4\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ec797cea626e928e38c1ac5f7e9b5ca4\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f47ffa4790b54f1a4037307e1bbf1d8\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f47ffa4790b54f1a4037307e1bbf1d8\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1377ecc082df76fa18d0a5c00a428a5e\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.6.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1377ecc082df76fa18d0a5c00a428a5e\transformed\core-1.6.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\f6c9a2364267ea85f4b216fb7a99bc32\transformed\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\f6c9a2364267ea85f4b216fb7a99bc32\transformed\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d2645c15d8801b31770948a8129f86b2\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d2645c15d8801b31770948a8129f86b2\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7650d3773ed93614f44fb3bce31ac345\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7650d3773ed93614f44fb3bce31ac345\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\83152c548fd04c9fbe90acbd9a3047ce\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\83152c548fd04c9fbe90acbd9a3047ce\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f4ed89fbcd5f3f9387d6a66498f4a45\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f4ed89fbcd5f3f9387d6a66498f4a45\transformed\fragment-1.3.6\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e4a87da775e3da0c5becc72f5f060ba3\transformed\jetified-activity-1.2.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e4a87da775e3da0c5becc72f5f060ba3\transformed\jetified-activity-1.2.4\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\76ac74eb722487a1dc955d693b9c0c92\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\76ac74eb722487a1dc955d693b9c0c92\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33bff2b79f5a68c988cfc0a545303581\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.4.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\33bff2b79f5a68c988cfc0a545303581\transformed\browser-1.4.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\eec33829a67c7b1856aaaefc484e52ee\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\eec33829a67c7b1856aaaefc484e52ee\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-rtsp:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\115a4c88b27054e043da3fa6087a8306\transformed\jetified-exoplayer-rtsp-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-rtsp:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\115a4c88b27054e043da3fa6087a8306\transformed\jetified-exoplayer-rtsp-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\dee6d8c8b6dc19e3e57710a9da8960af\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\dee6d8c8b6dc19e3e57710a9da8960af\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3fbceba73d68e3df87a362e654a1f662\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3fbceba73d68e3df87a362e654a1f662\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ab4301ee69db5b0c2f4ecde2ac46cdca\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ab4301ee69db5b0c2f4ecde2ac46cdca\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\52731d36457b652527ddd3f03d369a99\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\52731d36457b652527ddd3f03d369a99\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a9cc59e34c0d098cfc2272f5d920c6ea\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a9cc59e34c0d098cfc2272f5d920c6ea\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f47ffa4790b54f1a4037307e1bbf1d8\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\4f47ffa4790b54f1a4037307e1bbf1d8\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.7.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ddea8656ee267a7334f57fa35e5f884b\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ddea8656ee267a7334f57fa35e5f884b\transformed\core-1.7.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d3d0ee45eb2182951a42b71a33e8c48b\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\d3d0ee45eb2182951a42b71a33e8c48b\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9faccae57c2c2ba35cb80b2644636f4e\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9faccae57c2c2ba35cb80b2644636f4e\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\bc0d7799f4af8ed3b548bb9be242640c\transformed\jetified-exoplayer-datasource-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-datasource:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\bc0d7799f4af8ed3b548bb9be242640c\transformed\jetified-exoplayer-datasource-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a196bb5f34a2fb7d10363f4a05fa5265\transformed\jetified-exoplayer-database-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-database:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a196bb5f34a2fb7d10363f4a05fa5265\transformed\jetified-exoplayer-database-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\0f122deb7f5882477170dbc14f49548d\transformed\jetified-exoplayer-extractor-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-extractor:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\0f122deb7f5882477170dbc14f49548d\transformed\jetified-exoplayer-extractor-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2f5f5fd2a52606d59928c40e76512fe0\transformed\jetified-exoplayer-decoder-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-decoder:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2f5f5fd2a52606d59928c40e76512fe0\transformed\jetified-exoplayer-decoder-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\c2de9aad09997080ff00d9968272b3a7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\c2de9aad09997080ff00d9968272b3a7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b58c033fbdb34520ddc2296d6b74a038\transformed\jetified-gifdecoder-4.14.2\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.14.2] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b58c033fbdb34520ddc2296d6b74a038\transformed\jetified-gifdecoder-4.14.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\17b0f654d56d4c2fe6f2321fced663a1\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.3] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\17b0f654d56d4c2fe6f2321fced663a1\transformed\exifinterface-1.3.3\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\31cde4db919c5c215551acc03e1fa13d\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\31cde4db919c5c215551acc03e1fa13d\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3e5bf45a3a871fab54c754ad3d80a4aa\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\3e5bf45a3a871fab54c754ad3d80a4aa\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6f6054deddcc18f1b527182e40762c66\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.print:print:1.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6f6054deddcc18f1b527182e40762c66\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b89023fcbc3bf281c0c8fb52901a1f15\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\b89023fcbc3bf281c0c8fb52901a1f15\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\05dfeef16e003fbe1c0aa99fceab36c8\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\05dfeef16e003fbe1c0aa99fceab36c8\transformed\jetified-lifecycle-viewmodel-savedstate-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9570ebaaf363565c3b29f81798e3fca9\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\9570ebaaf363565c3b29f81798e3fca9\transformed\lifecycle-viewmodel-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1f889049b85831b81476e8926bb7f587\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\1f889049b85831b81476e8926bb7f587\transformed\jetified-savedstate-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ed81d55ce524046d98b69ce298bbe669\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\ed81d55ce524046d98b69ce298bbe669\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7650d3773ed93614f44fb3bce31ac345\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\7650d3773ed93614f44fb3bce31ac345\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\5c6cceedaa018b830d4dba7d014af8cf\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\5c6cceedaa018b830d4dba7d014af8cf\transformed\lifecycle-livedata-core-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\20be37651db95f9b8dc086375e29cce8\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\20be37651db95f9b8dc086375e29cce8\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [io.grpc:grpc-android:1.48.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6df1e566b6f6583cd3bf9127323195e0\transformed\jetified-grpc-android-1.48.1\AndroidManifest.xml:5:5-7:41
 MERGED from [io.grpc:grpc-android:1.48.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6df1e566b6f6583cd3bf9127323195e0\transformed\jetified-grpc-android-1.48.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\a2c1be964acccc85a882b654b6b615e1\transformed\jetified-threetenabp-1.2.3\AndroidManifest.xml:5:5-44
@@ -426,6 +495,8 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:
 		ADDED from [:firebase_messaging] C:\Megha38\Nikunj_Sir\zyena_product_app\build\firebase_messaging\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-64
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [:firebase_messaging] C:\Megha38\Nikunj_Sir\zyena_product_app\build\firebase_messaging\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-68
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:11:5-68
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:11:5-68
 MERGED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:26:5-68
 MERGED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:26:5-68
 MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\fa378b950738917ae84cc510f33b9d2c\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:24:5-68
@@ -468,6 +539,10 @@ MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Use
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\2b98e4c534cd40071315a8a1164a8703\transformed\jetified-play-services-cloud-messaging-17.0.1\AndroidManifest.xml:7:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\5b6354e9ed103990c867f000b23ae1d6\transformed\jetified-play-services-measurement-sdk-api-21.2.0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:21.2.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\5b6354e9ed103990c867f000b23ae1d6\transformed\jetified-play-services-measurement-sdk-api-21.2.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\dee6d8c8b6dc19e3e57710a9da8960af\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\dee6d8c8b6dc19e3e57710a9da8960af\transformed\jetified-exoplayer-core-2.18.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\c2de9aad09997080ff00d9968272b3a7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-common:2.18.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\c2de9aad09997080ff00d9968272b3a7\transformed\jetified-exoplayer-common-2.18.1\AndroidManifest.xml:24:5-79
 MERGED from [io.grpc:grpc-android:1.48.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6df1e566b6f6583cd3bf9127323195e0\transformed\jetified-grpc-android-1.48.1\AndroidManifest.xml:9:5-79
 MERGED from [io.grpc:grpc-android:1.48.1] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\6df1e566b6f6583cd3bf9127323195e0\transformed\jetified-grpc-android-1.48.1\AndroidManifest.xml:9:5-79
 	android:name
@@ -542,6 +617,8 @@ ADDED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_ap
 		ADDED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-78
 uses-permission#android.permission.VIBRATE
 ADDED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-66
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-66
+MERGED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-66
 	android:name
 		ADDED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:10:22-63
 uses-permission#android.permission.USE_FULL_SCREEN_INTENT
@@ -582,6 +659,42 @@ action#com.htc.intent.action.QUICKBOOT_POWERON
 ADDED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:26:17-82
 	android:name
 		ADDED from [:flutter_local_notifications] C:\Megha38\Nikunj_Sir\zyena_product_app\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:26:25-79
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-77
+	android:name
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-74
+receiver#com.github.florent37.assets_audio_player.notification.NotificationActionReceiver
+ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:14:9-16:39
+	android:exported
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:16:13-36
+	android:name
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-108
+receiver#com.github.florent37.assets_audio_player.notification.CustomMediaButtonReceiver
+ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:17:9-23:20
+	android:exported
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:19:13-36
+	android:name
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-107
+intent-filter#action:name:android.intent.action.MEDIA_BUTTON
+ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-22:29
+action#android.intent.action.MEDIA_BUTTON
+ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:21:17-77
+	android:name
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:21:25-74
+service#com.github.florent37.assets_audio_player.notification.NotificationService
+ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:25:9-35:19
+	android:enabled
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:27:13-35
+	android:exported
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:28:13-36
+	android:name
+		ADDED from [:assets_audio_player] C:\Megha38\Nikunj_Sir\zyena_product_app\build\assets_audio_player\intermediates\merged_manifest\release\AndroidManifest.xml:26:13-101
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Megha38\Nikunj_Sir\zyena_product_app\android\app\src\main\AndroidManifest.xml:1:1-34:12 reason: com.github.florent37.assets_audio_player has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from C:\Megha38\Nikunj_Sir\zyena_product_app\android\app\src\main\AndroidManifest.xml:1:1-34:12 reason: com.github.florent37.assets_audio_player has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from C:\Megha38\Nikunj_Sir\zyena_product_app\android\app\src\main\AndroidManifest.xml:1:1-34:12 reason: com.github.florent37.assets_audio_player requested WRITE_EXTERNAL_STORAGE
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.firebase:firebase-messaging:23.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\e2bc3c667a62e09cd6c63effa44f82a3\transformed\jetified-firebase-messaging-23.1.0\AndroidManifest.xml:28:5-82
 MERGED from [com.google.firebase:firebase-iid:21.1.0] C:\Users\StackApp Flutter\.gradle\caches\transforms-3\fa378b950738917ae84cc510f33b9d2c\transformed\jetified-firebase-iid-21.1.0\AndroidManifest.xml:26:5-82

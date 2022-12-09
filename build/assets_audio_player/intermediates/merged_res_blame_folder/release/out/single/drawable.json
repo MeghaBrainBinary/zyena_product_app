@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\assets_audio_player\\intermediates\\merged_res\\release\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\ddea8656ee267a7334f57fa35e5f884b\\transformed\\core-1.7.0\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\assets_audio_player\\intermediates\\merged_res\\release\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\ddea8656ee267a7334f57fa35e5f884b\\transformed\\core-1.7.0\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\assets_audio_player\\intermediates\\merged_res\\release\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\ddea8656ee267a7334f57fa35e5f884b\\transformed\\core-1.7.0\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\assets_audio_player\\intermediates\\merged_res\\release\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\ddea8656ee267a7334f57fa35e5f884b\\transformed\\core-1.7.0\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Megha38\\Nikunj_Sir\\zyena_product_app\\build\\assets_audio_player\\intermediates\\merged_res\\release\\drawable\\exo_rounded_rectangle.xml",
+        "source": "C:\\Users\\StackApp Flutter\\.gradle\\caches\\transforms-3\\76ee24ea8a3a693c7f9ca947da376d85\\transformed\\jetified-exoplayer-ui-2.18.1\\res\\drawable\\exo_rounded_rectangle.xml"
+    }
+]
